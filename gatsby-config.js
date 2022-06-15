@@ -18,11 +18,15 @@ module.exports = {
             __key: "images"
         },
         {
-            resolve: 'gatsby-plugin-web-font-loader',
+            resolve: 'gatsby-plugin-google-fonts',
             options: {
-                google: {
-                    families: ['Lato', 'Roboto']
-                }
+                fonts: [
+                    'lato\:400,500,600,700,800,900',
+                    'roboto\:400,500,600,700,800,900',
+                    'material icons',
+                    'material symbols',
+                ],
+                display: 'swap'
             }
         }
     ]

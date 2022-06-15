@@ -6,6 +6,7 @@ import Layout from "../components/Layout"
 import { Container, Padding, ContentStack } from "../components/Layout";
 import LandingHeader from '../components/LandingHeader';
 import ProjectCard from "../components/ProjectCard";
+import Ipad from "../components/devices/Ipad";
 
 // styles
 import { Eyebrow } from "../components/Fonts";
@@ -14,6 +15,11 @@ import colors from "../styles/colors";
 // icons
 import iphone from '../images/contact/iphone.svg'
 import mail from '../images/contact/mail.svg'
+
+// projects
+import cookbook from '../images/projects/cookbook/gallery.png'
+import tmHelper from '../images/projects/tm-helper/screen.png'
+import mnu from '../images/projects/mnu/screen.png'
 
 const IndexPage = () => {
     return (
@@ -33,6 +39,8 @@ const IndexPage = () => {
                                 background='#F1F1E9'
                                 description='A web app that stores my favorite recipes for easy cooking instructions and shopping lists.'
                                 tags={['Angular', 'Firebase']}
+                                mockup={<Ipad url='http://cookbook.com' page={cookbook}/>}
+                                link='/personal-cookbook'
                             />
                             <ProjectCard 
                                 title='Terraforming Mars Helper'
@@ -40,12 +48,16 @@ const IndexPage = () => {
                                 description='A companion web app for my favorite board game, Terraforming Mars.'
                                 tags={['React', 'Styled Components']}
                                 text='white'
+                                mockup={<Ipad url='http://cookbook.com' page={tmHelper}/>}
+                                link='/tm-helper'
                             />
                             <ProjectCard 
                                 title='MNU: Menu Websites'
                                 background='#F6D58D'
                                 description='A business venture.'
                                 tags={['Javascript', 'Headless CMS']}
+                                mockup={<Ipad url='http://cookbook.com' page={mnu}/>}
+                                link='/mnu'
                             />
                         </ContentStack>
                         <ContentStack size="lg">

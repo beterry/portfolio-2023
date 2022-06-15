@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import { Link } from 'gatsby';
 
 // components
 import { ContentStack } from './Layout';
@@ -7,13 +8,16 @@ import { ContentStack } from './Layout';
 // styles
 import colors from "../styles/colors";
 
-const ProjectCard = ({title, background, tags, description, text = 'black'}) => {
+const ProjectCard = ({title, background, tags, description, text = 'black', mockup, link}) => {
     return (
-        <Card bk={background}>
+        <Card to={link} bk={background}>
             <CardContent size='xs' textColor={text}>
                 <h3>{title}</h3>
                 <p>{description}</p>
             </CardContent >
+            <Mockup>
+                {mockup}
+            </Mockup>
             <TagList>
                 {tags.map(tag => <Tag key={title + tag}>{tag}</Tag>)}
             </TagList>
@@ -21,7 +25,7 @@ const ProjectCard = ({title, background, tags, description, text = 'black'}) => 
     )
 }
 
-const Card = styled.article`
+const Card = styled(Link)`
     position: relative;
     border-radius: 8px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -35,6 +39,9 @@ const Card = styled.article`
 
     padding: 32px;
     min-height: 400px;
+
+    text-decoration: none;
+    color: inherit;
 `
 
 const CardContent = styled(ContentStack)`
@@ -60,5 +67,7 @@ const Tag = styled.li`
     border-radius: 50px;
     padding: 6px 16px;
 `
+
+const Mockup = styled.div``
 
 export default ProjectCard
