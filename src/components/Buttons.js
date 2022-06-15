@@ -23,7 +23,7 @@ const Button = styled.button`
 `
 
 const ContainedButton = styled(Button)`
-    background: ${colors.blue.main};
+    background: ${props => props.bk ? props.bk : colors.blue.main};
     color: white;
     border-radius: .25rem;
     &:hover{
