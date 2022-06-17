@@ -4,21 +4,20 @@ import styled from 'styled-components'
 // components
 import { Container, ContentStack } from './Layout';
 import { ContainedButton } from './Buttons';
-import Ipad from './devices/Ipad';
 
 // styles
 import { Eyebrow } from './Fonts';
 import colors from '../styles/colors'
 
-// images
-import headerScreenshot from '../images/projects/cookbook/gallery.png'
-
 const ProjectHeader = ({
     title, 
     description, 
-    overline, 
+    madeWith, 
     color = colors.blue.dark,
-    text = 'black'
+    text = 'black',
+    mockup,
+    demo,
+    code
 }) => {
     return (
         <Header color={color}>
@@ -27,7 +26,7 @@ const ProjectHeader = ({
                     <Info size='lg' text={text}>
                         <div>
                             <Overline>
-                                {overline}
+                                {'Made with ' + madeWith}
                             </Overline>
                             <h1>{title}</h1>
                         </div>
@@ -35,11 +34,11 @@ const ProjectHeader = ({
                             <p>{description}</p>
                         </ContentStack>
                         <ProjectButtons>
-                            <ContainedButton>View Code</ContainedButton>
-                            <ContainedButton>Try it out</ContainedButton>
+                            {code && <ContainedButton as='a' target='_blank' href={code}>View Code</ContainedButton>}
+                            {demo && <ContainedButton as='a' target='_blank' href={demo}>Try it out</ContainedButton>}
                         </ProjectButtons>
                     </Info>
-                    <Ipad url='http://cookbook.com' page={headerScreenshot}/>
+                    {mockup}
                 </Grid>
             </Container>
         </Header>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 // icons
 import wifi from '../../images/devices/wifi.svg'
@@ -14,7 +15,7 @@ import font from '../../images/devices/font.svg'
 import lock from '../../images/devices/lock.svg'
 import refresh from '../../images/devices/refresh.svg'
 
-const Ipad = ({url, page}) => {
+const Ipad = ({url, screenshot}) => {
     return (
         <Base>
             <Screen>
@@ -49,7 +50,7 @@ const Ipad = ({url, page}) => {
                         <BrowserIcon src={grid} alt='grid'/>
                     </BrowserBarSide>
                 </BrowserBar>
-                <Page src={page} alt='Screenshot'/>
+                <Img fluid={screenshot} />
             </Screen>
         </Base>
     )
@@ -139,10 +140,6 @@ const SecureIcon = styled.img`
     position: absolute;
     left: 102%;
     width: 8px;
-
-`
-
-const Page = styled.img`
 
 `
 
