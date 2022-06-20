@@ -17,7 +17,7 @@ import iphone from '../images/contact/iphone.svg'
 import mail from '../images/contact/mail.svg'
 
 // projects
-import cookbook from '../images/projects/cookbook/gallery.png'
+import cookbook from '../pages/projects/cookbook/images/main/cookbook.png'
 import tmHelper from '../images/projects/tm-helper/screen.png'
 import mnu from '../images/projects/mnu/screen.png'
 

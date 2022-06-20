@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql } from "gatsby"
+import { MDXProvider } from "@mdx-js/react"
 
 // components
 import Layout from "../components/Layout"
@@ -12,10 +12,14 @@ import Ipad from '../components/devices/Ipad'
 // styles
 import { Eyebrow } from "../components/Fonts";
 import colors from "../styles/colors";
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-const ProjectLayout = ({ data: { mdx } }) => {
-    const frontmatter = mdx.frontmatter
+// short codes
+import ProjectImages from '../components/ProjectImages'
+const shortcodes = { ProjectImages }
+
+const ProjectLayout = ({ children, pageContext, data }) => {
+    const frontmatter = pageContext.frontmatter
+
     return (
         <Layout>
             <ProjectHeader 
@@ -23,7 +27,7 @@ const ProjectLayout = ({ data: { mdx } }) => {
                 description={frontmatter.description}
                 madeWith={frontmatter.madeWith}
                 color={frontmatter.color}
-                mockup={<Ipad url={frontmatter.demo} screenshot={frontmatter.ipad.childImageSharp.fluid}/>}
+                mockup={<Ipad url={frontmatter.demo} screenshot={data.mainImage.edges[0].node.childImageSharp.fluid}/>}
                 demo={frontmatter.demo}
                 code={frontmatter.code}
             />
@@ -31,7 +35,7 @@ const ProjectLayout = ({ data: { mdx } }) => {
             <Container>
                 <Main>
                     <Content>
-                        <MDXRenderer>{mdx.body}</MDXRenderer>
+                        <MDXProvider components={shortcodes}>{children}</MDXProvider>
                     </Content>
                     <Rail>
                         <Car size='lg'>
@@ -75,6 +79,10 @@ const Content = styled.div`
     p {
         margin-top: 1em;
     }
+
+    .project-images {
+        margin: 1.5em 0;
+    }
 `
 
 const Rail = styled.div`
@@ -109,28 +117,3 @@ const ProjectButtons = styled.div`
 ` 
 
 export default ProjectLayout
-
-export const query = graphql`
-    query ProjectQuery($slug: String) {
-        mdx(slug: { eq: $slug }) {
-            id
-            body
-            frontmatter {
-                title
-                description
-                madeWith
-                color
-                technology
-                demo
-                code
-                ipad {
-                    childImageSharp {
-                        fluid(maxWidth: 800) {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
-                }
-            }
-        }
-    }
-`
