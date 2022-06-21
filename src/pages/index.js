@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import styled from 'styled-components'
 
 // components
@@ -16,15 +17,15 @@ import colors from "../styles/colors";
 import iphone from '../images/contact/iphone.svg'
 import mail from '../images/contact/mail.svg'
 
-// projects
-import cookbook from '../pages/projects/cookbook/images/main/cookbook.png'
-import tmHelper from '../images/projects/tm-helper/screen.png'
-import mnu from '../images/projects/mnu/screen.png'
+const IndexPage = ({data}) => {
+    const projects = data.projectsQuery.edges.map(edge => ({...edge.node.frontmatter , ...edge.node.fields}))
+    const ben = data.ben.fluid
 
-const IndexPage = () => {
+    console.log(data)
+
     return (
         <Layout>
-            <LandingHeader />
+            <LandingHeader img={ben}/>
             <Padding size='section' />
             <Container>
                 <Main>
@@ -34,31 +35,18 @@ const IndexPage = () => {
                                 <h2>Portfolio</h2>
                                 <p>These are my favorite personal projects from past two years. I’m constantly building side projects outside of my professional work day-to-day. Constantly flexing my creative muscles allows me to learn new skills and further improve on existing skills.</p>
                             </ContentStack>
-                            <ProjectCard 
-                                title='Personal Cookbook'
-                                background='#F1F1E9'
-                                description='A web app that stores my favorite recipes for easy cooking instructions and shopping lists.'
-                                tags={['Angular', 'Firebase']}
-                                mockup={<Ipad url='http://cookbook.com' page={cookbook}/>}
-                                link='/personal-cookbook'
-                            />
-                            <ProjectCard 
-                                title='Terraforming Mars Helper'
-                                background='#0C2030'
-                                description='A companion web app for my favorite board game, Terraforming Mars.'
-                                tags={['React', 'Styled Components']}
-                                text='white'
-                                mockup={<Ipad url='http://cookbook.com' page={tmHelper}/>}
-                                link='/tm-helper'
-                            />
-                            <ProjectCard 
-                                title='MNU: Menu Websites'
-                                background='#F6D58D'
-                                description='A business venture.'
-                                tags={['Javascript', 'Headless CMS']}
-                                mockup={<Ipad url='http://cookbook.com' page={mnu}/>}
-                                link='/mnu'
-                            />
+                            {projects.map(project => 
+                                <ProjectCard 
+                                    title={project.title}
+                                    background={project.color}
+                                    textColor={project.textColor}
+                                    description={project.description}
+                                    tags={project.technology}
+                                    mockup={<Ipad url={project.demo} screenshot={project.ipad.childImageSharp.fluid}/>}
+                                    link={project.slug}
+                                    key={project.slug}
+                                />
+                            )}
                         </ContentStack>
                         <ContentStack size="lg">
                             <h2>About Me</h2>
@@ -154,3 +142,44 @@ const Contact = styled.a`
 const ContactIcon = styled.img``
 
 export default IndexPage
+
+export const pageQuery = graphql`
+    query {
+        siteQuery: site {
+            siteMetadata {
+                title
+            }
+        }
+        projectsQuery: allMdx(sort: {fields: frontmatter___order, order: ASC}) {
+            edges {
+                node {
+                    frontmatter {
+                        title
+                        description
+                        technology
+                        madeWith
+                        color
+                        textColor
+                        demo
+                        code
+                        ipad {
+                            childImageSharp{
+                                fluid{
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
+                        }
+                    }
+                    fields {
+                        slug
+                    }
+                }
+            }
+        }
+        ben: imageSharp(fluid: {originalName: {eq: "ben.png"}}) {
+            fluid {
+                ...GatsbyImageSharpFluid
+            }
+        }
+    }
+`

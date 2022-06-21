@@ -1,0 +1,43 @@
+---
+title: "MNU: Online Menus"
+order: 20
+description: MNU is a product/brand I designed and developed after noticing several usability issues with online PDF menus. MNU menus are well-designed, mobile-friendly menu websites.
+madeWith: Javascript
+color: "#FBD586"
+textColor: "black"
+technology: ['Javascript', 'Contentful', 'HTML & CSS']
+demo: https://demo.mnumenu.com/
+code: https://github.com/beterry/mnu-demo
+ipad: ./images/main/mnu.png
+---
+
+import { graphql } from "gatsby"
+
+## body
+
+export const pageQuery = graphql`
+    query mnuQuery{
+        mainImage: allFile(filter: {relativeDirectory: {eq: "mnu/images/main"}}) {
+            edges {
+                node {
+                    childImageSharp {
+                        fluid {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
+            }
+        }
+        images: allFile(filter: {relativeDirectory: {eq: "mnu/images"}}, sort: {order: ASC, fields: name}) {
+            edges {
+                node {
+                    childImageSharp {
+                        fluid {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
+            }
+        }
+    }
+`

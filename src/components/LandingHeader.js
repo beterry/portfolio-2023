@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 // components
 import { Container, ContentStack } from './Layout';
@@ -9,10 +10,7 @@ import { ContainedButton } from './Buttons';
 import { Eyebrow } from './Fonts';
 import colors from '../styles/colors'
 
-// images
-import ben from '../images/ben.png'
-
-const LandingHeader = () => {
+const LandingHeader = ({img}) => {
     return (
         <Header>
             <Container>
@@ -32,7 +30,9 @@ const LandingHeader = () => {
                             <ContainedButton>Resume</ContainedButton>
                         </div>
                     </Info>
-                    <Ben src={ben} alt='Ben' />
+                    <ImageContainer>
+                        <Img fluid={img} />
+                    </ImageContainer>
                 </Grid>
             </Container>
         </Header>
@@ -63,8 +63,8 @@ const Info = styled(ContentStack)`
 
 const Overline = styled(Eyebrow)``
 
-const Ben = styled.img`
-    max-height: 650px;
+const ImageContainer = styled.div`
+    width: 30rem;
     opacity: .5;
     margin: 0 auto;
 `

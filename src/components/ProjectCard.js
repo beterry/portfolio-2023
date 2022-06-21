@@ -8,10 +8,10 @@ import { ContentStack } from './Layout';
 // styles
 import colors from "../styles/colors";
 
-const ProjectCard = ({title, background, tags, description, text = 'black', mockup, link}) => {
+const ProjectCard = ({title, background, tags, description, textColor = 'black', mockup, link}) => {
     return (
         <Card to={link} bk={background}>
-            <CardContent size='xs' textColor={text}>
+            <CardContent size='xs' textColor={textColor}>
                 <h3>{title}</h3>
                 <p>{description}</p>
             </CardContent >

@@ -1,0 +1,43 @@
+---
+title: Terraforming Mars
+order: 10
+description: Table top gaming is one of my favorite hobbies. One of my favorite games is Terraforming Mars, a strategy game which my friends and I play frequently. I designed this web application to aid gameplay by helping each player manage their resources.
+madeWith: React
+color: "#082032"
+textColor: "white"
+technology: ['React', 'JSX', 'Styled Components']
+demo: https://beterry.github.io/tm-helper/
+code: https://github.com/beterry/tm-helper
+ipad: ./images/main/tm-helper.png
+---
+
+import { graphql } from "gatsby"
+
+## body
+
+export const pageQuery = graphql`
+    query tmHelperQuery{
+        mainImage: allFile(filter: {relativeDirectory: {eq: "tm-helper/images/main"}}) {
+            edges {
+                node {
+                    childImageSharp {
+                        fluid {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
+            }
+        }
+        images: allFile(filter: {relativeDirectory: {eq: "tm-helper/images"}}, sort: {order: ASC, fields: name}) {
+            edges {
+                node {
+                    childImageSharp {
+                        fluid {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
+            }
+        }
+    }
+`
