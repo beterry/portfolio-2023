@@ -14,7 +14,7 @@ const ProjectHeader = ({
     description, 
     madeWith, 
     color = colors.blue.dark,
-    text = 'black',
+    textColor = 'black',
     mockup,
     demo,
     code
@@ -23,7 +23,7 @@ const ProjectHeader = ({
         <Header color={color}>
             <Container>
                 <Grid>
-                    <Info size='lg' text={text}>
+                    <Info size='lg' textColor={textColor}>
                         <div>
                             <Overline>
                                 {'Made with ' + madeWith}
@@ -60,7 +60,7 @@ const Grid = styled.div`
 
 const Info = styled(ContentStack)`
     justify-content: start;
-    color: ${props => props.text}
+    color: ${props => props.textColor};
 
     h1 {
         font-size: 2.5rem;

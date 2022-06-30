@@ -1,11 +1,11 @@
 ---
 title: "MNU: Online Menus"
 order: 20
-description: MNU is a product/brand I designed and developed after noticing several usability issues with online PDF menus. MNU menus are well-designed, mobile-friendly menu websites.
+description: A product/brand I designed and developed to provide restaurant owners with well-designed, mobile-friendly menu websites.
 madeWith: Javascript
 color: "#FBD586"
 textColor: "black"
-technology: ['Javascript', 'Contentful', 'HTML & CSS']
+technology: ['Javascript', 'Contentful CMS', 'HTML & CSS']
 demo: https://demo.mnumenu.com/
 code: https://github.com/beterry/mnu-demo
 ipad: ./images/main/mnu.png
@@ -13,7 +13,25 @@ ipad: ./images/main/mnu.png
 
 import { graphql } from "gatsby"
 
-## body
+## Purpose and Goal
+
+In a pandemic era, many restaurants made an abrupt shift to QR-activated digital PDFs in place of traditional physical menus. As a frequent restaurant-goer, I began to notice a lack of well-designed, mobile-friendly menus. The digital PDFs and makeshift lists were not suited for small devices and required endless zooming to read.
+
+This problem presented a business opportunity and I decided to design a product to solve it. The main goal of this project was to design a product that restaurant owners would find useful and purchase.
+
+## Interesting features
+
+### Mobile Friendly
+Because online menus are mainly viewed in the restaurant on the user’s own device, I designed a menu which looks and functions great on all sized devices.
+
+### Headless CMS
+I wanted restaurant owners to be easily able to edit, add, and remove menu items. I decided to use a headless CMS product called Contentful as a backend for editing menu items. Using the existing backend interface, users would be easily able to edit their menus without me assistance.
+
+### Category Navigation
+I designed a category navigation menu which allows a user to easily jump to the section they want to see. The food and drink menus are separated and the user can switch between the two with buttons at the top or a floating button in the corner.
+
+### Landing Page
+I designed and developed a landing page so restaurant owners can learn more about the product. The landing page features a video which better shows how a restaurant owner can easily update their menu.
 
 export const pageQuery = graphql`
     query mnuQuery{

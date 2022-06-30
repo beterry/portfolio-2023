@@ -4,14 +4,15 @@ import styled from 'styled-components'
 
 // components
 import Layout from "../components/Layout"
-import { Container, Padding, ContentStack } from "../components/Layout";
-import LandingHeader from '../components/LandingHeader';
-import ProjectCard from "../components/ProjectCard";
-import Ipad from "../components/devices/Ipad";
+import { Container, Padding, ContentStack } from "../components/Layout"
+import LandingHeader from '../components/LandingHeader'
+import ProjectCard from "../components/ProjectCard"
+import Ipad from "../components/devices/Ipad"
+import Timeline from "../components/Timeline"
 
 // styles
-import { Eyebrow } from "../components/Fonts";
-import colors from "../styles/colors";
+import { Eyebrow } from "../components/Fonts"
+import colors from "../styles/colors"
 
 // icons
 import iphone from '../images/contact/iphone.svg'
@@ -21,7 +22,7 @@ const IndexPage = ({data}) => {
     const projects = data.projectsQuery.edges.map(edge => ({...edge.node.frontmatter , ...edge.node.fields}))
     const ben = data.ben.fluid
 
-    console.log(data)
+    console.log(projects)
 
     return (
         <Layout>
@@ -48,14 +49,7 @@ const IndexPage = ({data}) => {
                                 />
                             )}
                         </ContentStack>
-                        <ContentStack size="lg">
-                            <h2>About Me</h2>
-                            <ContentStack>
-                                <p>My career, after university, began as a Graphic Designer. At both Lasting Image and Sign Medix, I was the only creative professional on staff and was responsible for designing marketing materials, creating and maintaining brand guidelines, communicating with clients, updating website content, and much more.</p>
-                                <p>In 2017, I began experimenting with web technologies. I created my first personal website with vanilla HTML and CSS and realized front-end development was the perfect combination of my interest in design and technology. Soon after this realization, I enrolled in several online curriculums to foster my desire to become a front-end developer.</p>
-                                <p>In 2018, I began working at Mail Shark. Working with the Creative Director, I introduced the marketing team to Adobe XD, which allowed for a more efficient approach to designing and prototyping digital content. I created a design system that established a cohesive look for their web pages and developed a step-by-step, goal-oriented process for completing projects. In 2019, I was promoted to User Interface and Experience Designer. Currently, as UI/UX Designer, it's my responsibility to plan, design, and prototype Mail Shark's digital projects.</p>
-                            </ContentStack>
-                        </ContentStack>
+                        <Timeline />
                     </ContentStack>
                     <Rail>
                         <Car size='lg'>

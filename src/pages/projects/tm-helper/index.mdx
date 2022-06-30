@@ -1,7 +1,7 @@
 ---
-title: Terraforming Mars
+title: Terraforming Mars Player Board
 order: 10
-description: Table top gaming is one of my favorite hobbies. One of my favorite games is Terraforming Mars, a strategy game which my friends and I play frequently. I designed this web application to aid gameplay by helping each player manage their resources.
+description: A companion web application for the popular board game, Terraforming Mars.
 madeWith: React
 color: "#082032"
 textColor: "white"
@@ -13,7 +13,34 @@ ipad: ./images/main/tm-helper.png
 
 import { graphql } from "gatsby"
 
-## body
+## Purpose and Goal
+
+Table top gaming is one of my favorite hobbies. One of my favorite games is Terraforming Mars, a strategy game which my friends and I play frequently. I designed this web application to aid gameplay by helping each player manage their resources.
+
+In Terraforming Mars, each player plays as a corporation racing to establish Mars as a habitable planet. There are six different resources in game which players spend to create forests, oceans and raise the temperature of Mars. 
+
+Each player tracks their resources with an individual player mat they keep in their play area. Every round, each player gains resources, placing several cubes on the player mat to track it. A player’s mat can at times have 50+ cubes on it, making it a pain to manage and a travesty if bumped.
+
+I designed this web application to be used primarily on a tablet, completely replacing a player’s mat when playing Terraforming Mars. The application tracks each resource and allows the player to complete time consuming tasks with a press of a button.
+
+## Interesting Features
+
+### Resource Tracking
+
+The Supply section is made up of 6 boxes which represent each unique resource in the game. If a player gains a resource, they tap the plus button is the respective box and then confirm by tapping the ‘Add’ button.
+
+In the physical game, players track resources with bronze, silver, and gold cubes each worth 1, 5, and 10 resources respectively. This application uses the same color system. 
+
+### Production Button
+
+The production button is the feature which saves the users the most time.
+
+In between generations (rounds), the players must gain resources based on their production level. When using a player mat, this process involves several minutes of gathering the appropriately colored cubes. However, using this application, it can be done instantly with a touch of a button.
+
+### Log
+
+In the right bottom corner of the application, I implemented an action log. In case the user (or other players at the table) questions whether appropriate actions have taken place, they can view the log to see every action that has recently happened.
+
 
 export const pageQuery = graphql`
     query tmHelperQuery{

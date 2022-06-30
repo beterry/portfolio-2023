@@ -15,44 +15,71 @@ import { graphql } from "gatsby"
 
 ## Purpose and Goal
 
-I really enjoy cooking dinner for my wife and I every night. However, as much as I’d like to be an expert chef, I’m not…which means I rely heavily on following recipes to create anything enjoyable to eat. 
+I really enjoy cooking dinner every night. But no matter how much I watch Master Chef, I'm not an expert. I rely heavily on following recipes to create anything enjoyable to eat. 😆
 
-I gather recipes from around the internet: Youtube, cooking blogs, and other recipe apps. I ran into several problems where most blogs were unreadable due to many advertisements, it was difficult to gather a recipe list from Youtube videos, and many recipes apps were missing some features I desired.
+I gather recipes from around the internet: Youtube, cooking blogs, and other recipe apps. However, trying to remember where each recipe was on the internet was a pain. I wanted a way to compile the recipes I love in one place with all the best features from each recipe platform.
 
-To solve these problems, I decided to develop a personalized cookbook to store my favorite recipes and make cooking them easier.
+I decided to develop this personalized cookbook to collect, personalize, and assist cooking my favorite recipes.
+
+<ProjectImages images={[
+    {
+        fluid: props.data.images.edges[3].node.childImageSharp.fluid,
+        caption: 'The recipe details page has tabs for ingredients, preparation instructions, and cooking steps.'
+    }
+]}/>
 
 ## Interesting Features
 
-### Firebase Data Storage
+### Firebase REST API
 
-I wanted the ability to add, delete, and modify recipes on multiple devices without editing any code. To achieve this, I aimed to store all the recipe data in a database which could be easily accessed from any browser. 
+I desired the ability to add, delete, and modify recipes on multiple devices without editing any code. To achieve this, I aimed to store all the recipe data in a database which could be easily accessed from any browser or device. 
 
-I decided to use Firebase as my backend solution. Firebase provides a very easy user experience to set-up and use a REST API. 
+I decided to use Firebase as my database solution. Firebase provides a very easy developer experience to set-up and use a REST API. 
 
-Firebase also allowed me to setup user permissions and logins, which I used to ensure that only I can edit my cookbook.
+To interact with the database, I learned how to develop with Angular's built-in `HttpClient` service. Where as I typically use Javascript's Promise API to gather data from a network, using the `HttpClient` services allowed me to experiement with Observables (a concept from the RxJS Javascript library used by Angular). It was fun to learn how to manipulate data returned from the database and how to handle errors when using Observables.
 
-This was great practice using Angular services and url fetching.
+### Snappy Page Loading
+
+By utilizing Angular, this app is built as a SPA (single page application). Navigating between pages is extremely responsive beacuse all the recipe data is loaded once when the app is first visited and then managed by the Angular services I wrote.
+
+When you first visit the recipe gallery, all the recipes are pulled in from the Firebase database and saved client-side. When a recipe is tapped on to see the details, the data doesn't have to be loaded from the server again, simply retrieved from the local object model in an instant. This creates a great user experience.
 
 ### Recipe Editing
 
-I designed and developed an intuitive recipe editing screen to allow myself to easily add and edit recipes. I can access this editing page by clicking the add button in the recipe gallery or by clicking the edit icon when viewing a recipe.
+I designed and developed an intuitive recipe editing screen to allow myself to easily add and edit recipes.
 
-This was great practice using Angular forms. 
+This was great practice using Angular's powerful reactive forms. This form binds right to the underlying recipe object model, allowing the data being saved to Firebase to always match the form's current state.
 
 <ProjectImages images={[
     {
         fluid: props.data.images.edges[0].node.childImageSharp.fluid,
-        caption: 'On the recipe edit page, I can create, update, and delete information from the Firebase database.'
+        caption: 'On the recipe edit page, I can create, update, and delete information from the Firebase database'
     }
 ]}/>
 
 ### Preparation Tab
 
-Often when I’m cooking dinner, my wife helps by cutting up vegetables or preparing spice mixtures. I desired two separate instructions to make following either the cooking instructions or preparation instructions easier. When viewing the recipe, I can click the preparation tab and we can work together to prepare ingredients before I start cooking. This improves my cooking experience.
+Most recipes include the preparation steps in the cooking instructions. However, I don't like to cook this way. I like to cut all vegetables, prepare all spice mixtures, etc. before starting to cook. I find this to relieve some stress from the process.
+
+I added a preparation tab to all recipes. This allows for my wife and I to easily divide the preparation steps and start cooking more quickly and without stress.
+
+<ProjectImages images={[
+    {
+        fluid: props.data.images.edges[1].node.childImageSharp.fluid,
+        caption: 'The prep tab details all actions that need to happen before cooking'
+    }
+]}/>
 
 ### Shopping List
 
 A feature that I love in apps such as Mealime is the shopping lists which populates with the ingredients in the recipes that you’ve selected. Unfortunately, this feature on Mealime doesn’t work when I’m cooking a recipe from another source so I wanted to add it to my custom app so I could always use it. When viewing a recipe, I can click the Add to List button to add the ingredients to my shopping list. I can also select multiple recipes from the gallery by clicking the checkmark and then clicking the Add to List button.
+
+<ProjectImages images={[
+    {
+        fluid: props.data.images.edges[2].node.childImageSharp.fluid,
+        caption: `The shopping list is populated with all the recipe's ingredients`
+    }
+]}/>
 
 export const pageQuery = graphql`
     query cookbookQuery{
