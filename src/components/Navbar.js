@@ -6,22 +6,25 @@ import { Container } from './Layout'
 import { IconButton } from './Buttons'
 
 // icons
-import mail from '../images/mail.svg'
-import github from '../images/github.svg'
+import {MdEmail} from 'react-icons/md'
+import {BsGithub} from 'react-icons/bs'
 
 // styles
 import colors from '../styles/colors'
 
-const Navbar = () => {
+const Navbar = ({
+    background = colors.blue.dark,
+    textColor = 'white'
+}) => {
     return (
-        <Nav>
+        <Nav background={background} textColor={textColor}>
             <Container>
                 <InnerNav>
                     <Logo>Ben Terry</Logo>
                     <Spacer></Spacer>
                     <ContactGrid>
-                        <IconButton as='a' href='mailto:benterry.dev@gmail.com'><img src={mail} alt='Email' /></IconButton>
-                        <IconButton as='a' href='https://github.com/beterry' target='_blank'><img src={github} alt='Github' /></IconButton>
+                        <IconButton as='a' href='mailto:benterry.dev@gmail.com' color={textColor}><MdEmail /></IconButton>
+                        <IconButton as='a' href='https://github.com/beterry' target='_blank' color={textColor}><BsGithub /></IconButton>
                     </ContactGrid>
                 </InnerNav>
             </Container>
@@ -30,7 +33,8 @@ const Navbar = () => {
 }
 
 const Nav = styled.nav`
-    background-color: ${colors.blue.dark};
+    background-color: ${props => props.background};
+    color: ${props => props.textColor};
     padding: .5rem 0;
 `
 
@@ -41,7 +45,6 @@ const InnerNav = styled.div`
 `
 
 const Logo = styled.h2`
-    color: white;
     font-size: 1.25rem;
     font-weight: 800;
 `

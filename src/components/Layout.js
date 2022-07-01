@@ -5,10 +5,10 @@ import styled from 'styled-components'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-const Layout = ({children}) => {
+const Layout = ({color, navTextColor, children}) => {
     return (
         <Site>
-            <Navbar />
+            <Navbar background={color} textColor={navTextColor}/>
             <main>{children}</main>
             <Footer />
         </Site>

@@ -21,7 +21,7 @@ const ProjectLayout = ({ children, pageContext, data }) => {
     const frontmatter = pageContext.frontmatter
 
     return (
-        <Layout>
+        <Layout color={frontmatter.color} navTextColor={frontmatter.textColor}>
             <ProjectHeader 
                 title={frontmatter.title}
                 description={frontmatter.description}

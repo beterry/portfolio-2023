@@ -53,6 +53,7 @@ const TextButton = styled(Button)`
 `
 
 const IconButton = styled.button`
+    font-size: 24px;
     border: none;
     display: flex;
     align-items: center;
@@ -63,7 +64,7 @@ const IconButton = styled.button`
     height: 2.5rem;
     border-radius: 50%;
     background: none;
-    color: ${props => props.white ? 'white' : 'black'};
+    color: ${props => props.color ? props.color : 'black'};
     transition: all .2s;
     &:hover{
         background: ${colors.blue.main};

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Img from 'gatsby-image'
 
 // components
@@ -10,6 +10,9 @@ import { ContainedButton } from './Buttons';
 import { Eyebrow } from './Fonts';
 import colors from '../styles/colors'
 
+// icons
+import { MdOutlineFrontHand } from 'react-icons/md';
+
 const LandingHeader = ({img}) => {
     return (
         <Header>
@@ -18,6 +21,7 @@ const LandingHeader = ({img}) => {
                     <Info size='lg'>
                         <div>
                             <Overline>
+                                <Hand><MdOutlineFrontHand /></Hand>
                                 Hi, my name is Ben
                             </Overline>
                             <h1>Web Developer</h1>
@@ -61,12 +65,37 @@ const Info = styled(ContentStack)`
     }
 `
 
-const Overline = styled(Eyebrow)``
+const Overline = styled(Eyebrow)`
+    display: flex;
+    gap: 8px;
+    align-items: center;
+`
 
 const ImageContainer = styled.div`
     width: 30rem;
     opacity: .5;
     margin: 0 auto;
+`
+
+const wave = keyframes`
+    0% { transform: rotate(-30deg) }
+    10% { transform: rotate(-16.0deg) }
+    20% { transform: rotate(-38.0deg) }
+    30% { transform: rotate(-16.0deg) }
+    40% { transform: rotate(-34.0deg) }
+    50% { transform: rotate(-20.0deg) }
+    60% { transform: rotate(-30.0deg) }
+    100% { transform: rotate(-30.0deg) }
+`
+
+const Hand = styled.div`
+    font-size: 24px;
+    transform: rotate(-30deg);
+    animation-name: ${wave};
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
 `
 
 export default LandingHeader
