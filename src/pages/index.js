@@ -15,8 +15,8 @@ import { Eyebrow } from "../components/Fonts"
 import colors from "../styles/colors"
 
 // icons
-import iphone from '../images/contact/iphone.svg'
-import mail from '../images/contact/mail.svg'
+import { MdSmartphone } from 'react-icons/md'
+import { MdMail } from 'react-icons/md'
 
 const IndexPage = ({data}) => {
     const projects = data.projectsQuery.edges.map(edge => ({...edge.node.frontmatter , ...edge.node.fields}))
@@ -69,11 +69,11 @@ const IndexPage = ({data}) => {
                                 <Eyebrow as='h3'>Let's Connect</Eyebrow>
                                 <div>
                                     <Contact href="tel:7174190478">
-                                        <ContactIcon src={iphone} alt="phone"/>
+                                        <MdSmartphone />
                                         (717) 419-0478
                                     </Contact>
                                     <Contact href="mailto:benterry.dev@gmail.com">
-                                        <ContactIcon src={mail} alt="email"/>
+                                        <MdMail />
                                         benterry.dev@gmail.com
                                     </Contact>
                                 </div>
