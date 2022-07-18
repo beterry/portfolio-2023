@@ -43,7 +43,7 @@ const IndexPage = ({data}) => {
                                     textColor={project.textColor}
                                     description={project.description}
                                     tags={project.technology}
-                                    mockup={<Ipad url={project.demo} screenshot={project.ipad.childImageSharp.fluid}/>}
+                                    mockup={<Ipad url={project.demo} screenshot={project.ipad.childImageSharp.fluid} width='400px'/>}
                                     link={project.slug}
                                     key={project.slug}
                                 />
@@ -89,12 +89,20 @@ const IndexPage = ({data}) => {
 
 const Main = styled.div`
     display: grid;
-    grid-template-columns: 1fr 24rem;
     gap: 48px;
+
+    @media screen and (min-width: 60rem) {
+        grid-template-columns: 2fr 1fr;
+    }
 `
 
 const Rail = styled.div`
     position: relative;
+    display: none;
+
+    @media screen and (min-width: 60rem) {
+        display: block;
+    }
 `
 
 const Car = styled(ContentStack)`

@@ -30,6 +30,8 @@ const Container = styled.div`
 
 const paddingSize = (size) => {
     switch (size) {
+        case 'none':
+            return '0'
         case 'xs':
             return '.5rem'
         case 'sm':
@@ -51,7 +53,10 @@ const Padding = styled.div`
 
 const ContentStack = styled.div`
     display: grid;
-    gap: ${({size}) => paddingSize(size)}
+    gap: ${({size}) => paddingSize(size)};
+
+    //defualt the padding to 0
+    padding: ${({padding = 'none'}) => paddingSize(padding)} 0;
 `
 
 export {Layout as default, Container, Padding, ContentStack}

@@ -28,7 +28,7 @@ const ProjectLayout = ({ children, pageContext, data }) => {
                 madeWith={frontmatter.madeWith}
                 color={frontmatter.color}
                 textColor={frontmatter.textColor}
-                mockup={<Ipad url={frontmatter.demo} screenshot={data.mainImage.edges[0].node.childImageSharp.fluid}/>}
+                mockup={<Ipad url={frontmatter.demo} screenshot={data.mainImage.edges[0].node.childImageSharp.fluid} width='800px'/>}
                 demo={frontmatter.demo}
                 code={frontmatter.code}
             />

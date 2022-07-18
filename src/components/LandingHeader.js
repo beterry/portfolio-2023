@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import Img from 'gatsby-image'
 
 // components
-import { Container, ContentStack } from './Layout';
+import { Container, ContentStack, Padding } from './Layout';
 import { ContainedButton } from './Buttons';
 
 // styles
@@ -18,7 +18,7 @@ const LandingHeader = ({img}) => {
         <Header>
             <Container>
                 <Grid>
-                    <Info size='lg'>
+                    <Info size='lg' padding='section'>
                         <div>
                             <Overline>
                                 <Hand><MdOutlineFrontHand /></Hand>
@@ -49,10 +49,13 @@ const Header = styled.header`
 
 const Grid = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 2rem;
-
     align-items: center;
+    
+    @media screen and (min-width: 60rem) {
+        grid-template-columns: 1fr 1fr;
+        
+    }
 `
 
 const Info = styled(ContentStack)`
@@ -75,6 +78,11 @@ const ImageContainer = styled.div`
     width: 30rem;
     opacity: .5;
     margin: 0 auto;
+    display: none;
+
+    @media screen and (min-width: 60rem) {
+        display: block;
+    }
 `
 
 const wave = keyframes`
