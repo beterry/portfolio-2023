@@ -5,6 +5,11 @@ import styled from 'styled-components'
 import { Container, ContentStack } from './Layout';
 import { ContainedButton } from './Buttons';
 
+// icons
+import { IoLogoReact } from 'react-icons/io5'
+import { IoLogoAngular } from 'react-icons/io5'
+import { IoLogoJavascript } from 'react-icons/io5'
+
 // styles
 import { Eyebrow } from './Fonts';
 import colors from '../styles/colors'
@@ -19,6 +24,19 @@ const ProjectHeader = ({
     demo,
     code
 }) => {
+    const madeWithLogo = (tech) => {
+        switch(madeWith) {
+            case 'React':
+                return <IoLogoReact />
+            case 'Angular':
+                return <IoLogoAngular />
+            case 'Javascript':
+                return <IoLogoJavascript />
+            default:
+                return null
+        }
+    }
+
     return (
         <Header color={color}>
             <Container>
@@ -26,6 +44,7 @@ const ProjectHeader = ({
                     <Info size='lg' textColor={textColor}>
                         <div>
                             <Overline>
+                                {madeWithLogo(madeWith)}
                                 {'Made with ' + madeWith}
                             </Overline>
                             <h1>{title}</h1>
@@ -70,6 +89,13 @@ const Info = styled(ContentStack)`
 
 const Overline = styled(Eyebrow)`
     color: ${colors.blue.main};
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    svg{
+        font-size: 24px;
+    }
 `
 
 const ProjectButtons = styled.div`

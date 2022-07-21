@@ -70,9 +70,7 @@ const Main = styled.div`
 
 const Content = styled.div`
     h1, h2, h3, h4 {
-        max-width: 42rem;
-        margin-left: auto;
-        margin-right: auto;
+        
     }
 
     h1, h2 {
@@ -87,8 +85,6 @@ const Content = styled.div`
 
     p {
         margin-top: 1em;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .project-images {
