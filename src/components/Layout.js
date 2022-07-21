@@ -41,7 +41,7 @@ const paddingSize = (size) => {
         case 'xl':
             return '2rem'
         case 'section':
-            return '3rem'
+            return '4rem'
         default:
             return '1rem'
     }

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 // components
 import { Container } from './Layout'
@@ -20,10 +21,12 @@ const Navbar = ({
         <Nav background={background} textColor={textColor}>
             <Container>
                 <InnerNav>
-                    <Logo>Ben Terry</Logo>
+                    <Link to='/'>
+                        <Logo>Ben Terry</Logo>
+                    </Link>
                     <Spacer></Spacer>
                     <ContactGrid>
-                        <IconButton as='a' href='mailto:benterry.dev@gmail.com' color={textColor}><MdEmail /></IconButton>
+                        <IconButton as='a' href='mailto:benterry.dev@gmail.com' color={textColor} target="_blank"><MdEmail /></IconButton>
                         <IconButton as='a' href='https://github.com/beterry' target='_blank' color={textColor}><BsGithub /></IconButton>
                     </ContactGrid>
                 </InnerNav>
