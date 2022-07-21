@@ -43,7 +43,7 @@ const IndexPage = ({data}) => {
                                     textColor={project.textColor}
                                     description={project.description}
                                     tags={project.technology}
-                                    mockup={<Ipad url={project.demo} screenshot={project.ipad.childImageSharp.fluid} width='400px'/>}
+                                    mockup={<Ipad url={project.demo} screenshot={project.ipad.childImageSharp.fluid}/>}
                                     link={project.slug}
                                     key={project.slug}
                                 />
@@ -140,8 +140,6 @@ const Contact = styled.a`
         background-color: ${colors.green.opacity[10]};
     }
 `
-
-const ContactIcon = styled.img``
 
 export default IndexPage
 

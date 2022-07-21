@@ -28,7 +28,7 @@ const ProjectLayout = ({ children, pageContext, data }) => {
                 madeWith={frontmatter.madeWith}
                 color={frontmatter.color}
                 textColor={frontmatter.textColor}
-                mockup={<Ipad url={frontmatter.demo} screenshot={data.mainImage.edges[0].node.childImageSharp.fluid} width='800px'/>}
+                mockup={<Ipad url={frontmatter.demo} screenshot={data.mainImage.edges[0].node.childImageSharp.fluid}/>}
                 demo={frontmatter.demo}
                 code={frontmatter.code}
             />
@@ -69,6 +69,12 @@ const Main = styled.div`
 `
 
 const Content = styled.div`
+    h1, h2, h3, h4 {
+        max-width: 42rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     h1, h2 {
         margin-top: 2em;
         padding-bottom: 0.4em;
@@ -81,6 +87,8 @@ const Content = styled.div`
 
     p {
         margin-top: 1em;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .project-images {

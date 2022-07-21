@@ -11,16 +11,16 @@ import colors from "../styles/colors";
 const ProjectCard = ({title, background, tags, description, textColor = 'black', mockup, link}) => {
     return (
         <Card to={link} bk={background}>
-            <CardContent size='xs' textColor={textColor}>
+            <CardContent textColor={textColor}>
                 <h3>{title}</h3>
                 <p>{description}</p>
+                <TagList>
+                    {tags.map(tag => <Tag key={title + tag}>{tag}</Tag>)}
+                </TagList>
             </CardContent >
             <Mockup>
                 {mockup}
             </Mockup>
-            <TagList>
-                {tags.map(tag => <Tag key={title + tag}>{tag}</Tag>)}
-            </TagList>
         </Card>
     )
 }
@@ -33,30 +33,37 @@ const Card = styled(Link)`
     overflow: hidden;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
     align-items: center;
+    gap: 24px;
 
     padding: 32px;
+    
     min-height: 400px;
-
+    
     text-decoration: none;
     color: inherit;
+    
+    @media screen and (min-width: 34.375rem) {
+        padding: 32px;
+        grid-template-columns: 1fr 50%;
+    }
 `
 
 const CardContent = styled(ContentStack)`
     color: ${props => props.textColor};
+    order: 2;
+
+    @media screen and (min-width: 34.375rem) {
+        order: 1;
+    }
 `
 
 const TagList = styled.ul`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 32px;
-
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     gap: 6px;
+    padding: 0;
 `
 
 const Tag = styled.li`
@@ -68,6 +75,15 @@ const Tag = styled.li`
     padding: 6px 16px;
 `
 
-const Mockup = styled.div``
+const Mockup = styled.div`
+    width: 100%;
+    order: 1;
+    
+    @media screen and (min-width: 34.375rem) {
+        width: calc(100% + 60px);
+        min-width: 400px;
+        order: 2;
+    }
+`
 
 export default ProjectCard

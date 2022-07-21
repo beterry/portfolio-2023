@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import Img from 'gatsby-image'
 
 // components
-import { Container, ContentStack, Padding } from './Layout';
+import { Container, ContentStack } from './Layout';
 import { ContainedButton } from './Buttons';
 
 // styles

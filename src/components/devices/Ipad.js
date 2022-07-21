@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ThemeProvider } from 'styled-components'
 import Img from 'gatsby-image'
 
 // icons
@@ -16,58 +15,55 @@ import font from '../../images/devices/font.svg'
 import lock from '../../images/devices/lock.svg'
 import refresh from '../../images/devices/refresh.svg'
 
-const Ipad = ({url, screenshot, width = '400px'}) => {
+const Ipad = ({url, screenshot}) => {
     return (
-        // provide the device width to all styled components to do calculations
-        <ThemeProvider theme={{width}}>
-            <Base>
-                <Screen>
-                    <SystemBar>
-                        <TopText>4:40 PM</TopText>
-                        <TopText>Mon June 13</TopText>
+        <Base>
+            <Screen>
+                <SystemBar>
+                    <TopText>4:40 PM</TopText>
+                    <TopText>Mon June 13</TopText>
+                    <Spacer />
+                    <SystemIcon src={wifi} alt='wifi'/>
+                    <SystemIcon src={battery} alt='battery'/>
+                </SystemBar>
+                <BrowserBar>
+                    <BrowserBarSide>
+                        <BrowserIcon src={web} alt='web'/>
+                        <BrowserIcon src={back} alt='back'/>
+                        <BrowserIcon src={forward} alt='forward'/>
+                    </BrowserBarSide>
+                    <Spacer />
+                    <BrowserSearch>
+                        <SearchIcon src={font} alt='font'/>
                         <Spacer />
-                        <SystemIcon src={wifi} alt='wifi'/>
-                        <SystemIcon src={battery} alt='battery'/>
-                    </SystemBar>
-                    <BrowserBar>
-                        <BrowserBarSide>
-                            <BrowserIcon src={web} alt='web'/>
-                            <BrowserIcon src={back} alt='back'/>
-                            <BrowserIcon src={forward} alt='forward'/>
-                        </BrowserBarSide>
+                        <SearchText>
+                            {url}
+                            <SecureIcon src={lock} alt='secure'/>
+                        </SearchText>
                         <Spacer />
-                        <BrowserSearch>
-                            <SearchIcon src={font} alt='font'/>
-                            <Spacer />
-                            <SearchText>
-                                {url}
-                                <SecureIcon src={lock} alt='secure'/>
-                            </SearchText>
-                            <Spacer />
-                            <SearchIcon src={refresh} alt='refresh'/>
-                        </BrowserSearch>
-                        <Spacer />
-                        <BrowserBarSide>
-                            <BrowserIcon src={share} alt='share'/>
-                            <BrowserIcon src={add} alt='add'/>
-                            <BrowserIcon src={grid} alt='grid'/>
-                        </BrowserBarSide>
-                    </BrowserBar>
-                    <Img fluid={screenshot} />
-                </Screen>
-            </Base>
-        </ThemeProvider>
+                        <SearchIcon src={refresh} alt='refresh'/>
+                    </BrowserSearch>
+                    <Spacer />
+                    <BrowserBarSide>
+                        <BrowserIcon src={share} alt='share'/>
+                        <BrowserIcon src={add} alt='add'/>
+                        <BrowserIcon src={grid} alt='grid'/>
+                    </BrowserBarSide>
+                </BrowserBar>
+                <Img fluid={screenshot} />
+            </Screen>
+        </Base>
     )
 }
 
 const Base = styled.div`
-    width: ${(props) => props.theme.width};
+    width: 100%;
     aspect-ratio: 4 / 3;
     background-color: black;
     border-radius: 4.3% / 5.8%;
     border: 1px solid #8F9094;
-    padding: 3.2%;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    padding: 2.5%;
+    box-shadow: 0 18px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 `
 
 const Screen = styled.div`
@@ -86,7 +82,7 @@ const SystemBar = styled.div`
 `
 
 const TopText = styled.p`
-    font-size: calc(${props => props.theme.width} / 90);
+    font-size: 8px;
     white-space: nowrap;
     width: max-content;
 `
@@ -94,7 +90,7 @@ const TopText = styled.p`
 const Spacer = styled.div``
 
 const SystemIcon = styled.img`
-    width: calc(${props => props.theme.width} / 80);
+    width: 10px;
 `
 
 const BrowserBar = styled.div`
@@ -107,15 +103,15 @@ const BrowserBar = styled.div`
 
 const BrowserBarSide = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, calc(${props => props.theme.width} / 45));
+    grid-template-columns: repeat(3, 12px);
     align-items: center;
-    gap: calc(${props => props.theme.width} / 45);
+    gap: 12px;
 `
 
 
 const BrowserIcon = styled.img`
-    width: calc(${props => props.theme.width} / 45);
-    height: calc(${props => props.theme.width} / 45);
+    width: 12px;
+    height: 12px;
     object-fit: contain;
 `
 
@@ -132,20 +128,20 @@ const SearchText = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    font-size: calc(${props => props.theme.width} / 80);
+    font-size: 6px;
 `
 
 const SearchIcon = styled.img`
-    width: calc(${props => props.theme.width} / 65);
-    height: calc(${props => props.theme.width} / 65);
+    width: 10px;
+    height: 10px;
     object-fit: contain;
 `
 
 const SecureIcon = styled.img`
     position: absolute;
     left: 102%;
-    width: calc(${props => props.theme.width} / 70);
-    height: calc(${props => props.theme.width} / 70);
+    width: 8px;
+    height: 8px;
 `
 
 export default Ipad
