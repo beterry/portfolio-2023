@@ -64,8 +64,11 @@ const ProjectLayout = ({ children, pageContext, data }) => {
 
 const Main = styled.div`
     display: grid;
-    grid-template-columns: 1fr 24rem;
     gap: 48px;
+
+    @media screen and (min-width: 60rem) {
+        grid-template-columns: 2fr 1fr;
+    }
 `
 
 const Content = styled.div`
@@ -77,6 +80,10 @@ const Content = styled.div`
         margin-top: 2em;
         padding-bottom: 0.4em;
         border-bottom: 1px solid lightgray;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
     }
 
     h3, h4 {
@@ -94,6 +101,11 @@ const Content = styled.div`
 
 const Rail = styled.div`
     position: relative;
+    display: none;
+
+    @media screen and (min-width: 60rem) {
+        display: block;
+    }
 `
 
 const Car = styled(ContentStack)`

@@ -57,7 +57,9 @@ const ProjectHeader = ({
                             {demo && <ContainedButton as='a' target='_blank' href={demo}>Try it out</ContainedButton>}
                         </ProjectButtons>
                     </Info>
-                    {mockup}
+                    <Mockup>
+                        {mockup}
+                    </Mockup>
                 </Grid>
             </Container>
         </Header>
@@ -67,14 +69,17 @@ const ProjectHeader = ({
 const Header = styled.header`
     background-color: ${props => props.color};
     padding: 5vw 0;
+    overflow: hidden;
 `
 
 const Grid = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 2rem;
-
     align-items: center;
+
+    @media screen and (min-width: 60rem) {
+        grid-template-columns: 1fr 50%;
+    }
 `
 
 const Info = styled(ContentStack)`
@@ -101,6 +106,15 @@ const Overline = styled(Eyebrow)`
 const ProjectButtons = styled.div`
     display: flex;
     gap: 12px;
+`
+
+const Mockup = styled.div`
+    width: 100%;
+
+    @media screen and (min-width: 34.375rem) {
+        min-width: 600px;
+        order: 2;
+    }
 `
 
 export default ProjectHeader
