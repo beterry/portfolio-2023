@@ -1,7 +1,7 @@
 ---
 title: Personal Cookbook
 order: 1
-description: I built this web application to help me organize and prepare my favorite recipes.
+description: I designed and developed this application to collect, organize, and make preparing my favorite meals easier.
 madeWith: Angular
 color: "#F1F1E9"
 textColor: "black"
@@ -13,13 +13,22 @@ ipad: ./images/main/cookbook.png
 
 import { graphql } from "gatsby"
 
-## Purpose and Goal
+## About this Project
 
-I really enjoy cooking dinner every night. But no matter how much I watch Master Chef, I'm not an expert. I rely heavily on following recipes to create anything enjoyable to eat. 😆
+I really enjoy cooking dinner with my wife every night. We are no where near expert chefs; We rely heavily on following recipes to create anything enjoyable to eat!
 
-I gather recipes from around the internet: Youtube, cooking blogs, and other recipe apps. However, trying to remember where each recipe was on the internet was a pain. I wanted a way to compile the recipes I love in one place with all the best features from each recipe platform.
+I gather recipes from around the internet: Youtube, cooking blogs, and other recipe apps. Many of the recipes I find are great and worth saving; however, finding them on a variety of platforms made organizing my favorites difficult. 
 
-I decided to develop this personalized cookbook to collect, personalize, and assist cooking my favorite recipes.
+I also find that my cooking process differs from how most recipes are structured. Whereas most recipes have the chef cooking and prepping at the same time, I prefer to prep all my ingredients completely before starting to cook.
+
+I designed and developed this application to collect, organize, and make preparing my favorite meals easier!
+
+### Goals
+
+- Edit and add recipes from multiple devices without touching code
+- Customize recipes for the way that my wife and I cook
+- Consolidate my favorite recipes from around the web
+- Create a shopping list from selected recipes
 
 <ProjectImages images={[
     {
@@ -28,58 +37,77 @@ I decided to develop this personalized cookbook to collect, personalize, and ass
     }
 ]}/>
 
-## Interesting Features
+## Key Features
 
-### Firebase REST API
+### Saving recipes to a database
 
-I desired the ability to add, delete, and modify recipes on multiple devices without editing any code. To achieve this, I aimed to store all the recipe data in a database which could be easily accessed from any browser or device. 
+To make my cookbook accessible and editable from any device, I save all the recipe data in a database.
 
-I decided to use Firebase as my database solution. Firebase provides a very easy developer experience to set-up and use a REST API. 
+For developers, there are many great database options nowadays. For this project, I decided to use Firebase as my database solution.
 
-To interact with the database, I learned how to develop with Angular's built-in `HttpClient` service. Where as I typically use Javascript's Promise API to gather data from a network, using the `HttpClient` services allowed me to experiement with Observables (a concept from the RxJS Javascript library used by Angular). It was fun to learn how to manipulate data returned from the database and how to handle errors when using Observables.
+#### Firebase Realtime database
 
-### Snappy Page Loading
+Firebase is maintained by Google and provides a suite of backend tools for web applications. One of their tools, Realtime Database, was the perfect fit for this project. A Firebase Realtime Database is cloud-hosted, synced across all clients in realtime, and also makes data available offline.
 
-By utilizing Angular, this app is built as a SPA (single page application). Navigating between pages is extremely responsive beacuse all the recipe data is loaded once when the app is first visited and then managed by the Angular services I wrote.
+#### REST API
 
-When you first visit the recipe gallery, all the recipes are pulled in from the Firebase database and saved client-side. When a recipe is tapped on to see the details, the data doesn't have to be loaded from the server again, simply retrieved from the local object model in an instant. This creates a great user experience.
+Any Firebase Realtime Database can be used as a REST API. This allows me to easily interact with the the recipe data via HTTPS requests. 
+
+For example, I retrieve all recipes in the database by sending a GET request to this URL:
+
+<Callout>
+    https://cookbook-e918c-default-rtdb.firebaseio.com/recipes.json
+</Callout>
+
+Using Firebase Realtime Database saved me a lot of time because I didn’t have to write a custom API to interact with my data.
+
+### User Authentication
+
+Along with Firebase's built-in API, I am also able to take advantage of their robust authentication tools. By setting up a single authenticated user in Firebase, I ensure that only I can edit the recipe data when logged into the application.
+
+I built this application in a way that all users are able to interact with the adding and editing features; however, only my changes are saved permanently to Firebase. All local actions done by guests are stored in local memory and cleared when the page is refreshed.
+
+#### Auto Login and Logout
+
+I implemented an auto login feature which looks for user data in local storage when the application is initially loaded. If user data is found, the user is automatically logged into the cookbook and able to make edits. This feature is helpful because if the application is refreshed, the user doesn’t have to log back in via the Admin Login form.
+
+To help security, Firebase can be configured to have user sessions. When a user’s session runs out, their attempts to edit data are no longer valid. When a user is initially logged in, I set a timer for the length of their session. When the timer expires, the application’s state changes to reflect the user being un-authenticated.
+
+<Callout emoji='&#128273;'>
+    Checkout the <a href='#'>User Service</a>
+</Callout>
 
 ### Recipe Editing
 
-I designed and developed an intuitive recipe editing screen to allow myself to easily add and edit recipes.
+I developed an intuitive editing form so I can efficiently add recipes from around the web. The form is able to create, delete, and edit every bit of recipe information in the database. There is never a need for me to touch the database directly, all the interaction is done through the editing form.
 
-This was great practice using Angular's powerful reactive forms. This form binds right to the underlying recipe object model, allowing the data being saved to Firebase to always match the form's current state.
+#### Angular Reactive Forms
 
-<ProjectImages images={[
-    {
-        fluid: props.data.images.edges[0].node.childImageSharp.fluid,
-        caption: 'On the recipe edit page, I can create, update, and delete information from the Firebase database'
-    }
-]}/>
+One of the main reasons I decided to use Angular to build this project is the framework’s approach to forms. Angular reactive forms provide direct access to the underlying recipe object model retrieved from the database. When I click the save button in the from, the data is already compiled and ready to be sent to the database to be saved. 
 
-### Preparation Tab
+<Callout>
+    Checkout the <a href='#'>Recipe Form Component</a>
+</Callout>
 
-Most recipes include the preparation steps in the cooking instructions. However, I don't like to cook this way. I like to cut all vegetables, prepare all spice mixtures, etc. before starting to cook. I find this to relieve some stress from the process.
+#### Form Validation
 
-I added a preparation tab to all recipes. This allows for my wife and I to easily divide the preparation steps and start cooking more quickly and without stress.
+There is a variety of form validation implemented in the editing form. For example, if you add a preparation step, but do not fill out the information, the save button at the top of the form is disabled. This prevents incomplete data being sent to the database.
 
-<ProjectImages images={[
-    {
-        fluid: props.data.images.edges[1].node.childImageSharp.fluid,
-        caption: 'The prep tab details all actions that need to happen before cooking'
-    }
-]}/>
+### Viewing the Preparation Steps
 
-### Shopping List
+One of the main differences between my cookbook and other recipe applications is the inclusion of the Prep tab. In the Prep tab, I’m able to view all the steps to prepare food before starting to cook. Personally, I believe this feature makes cooking less stressful.
 
-A feature that I love in apps such as Mealime is the shopping lists which populates with the ingredients in the recipes that you’ve selected. Unfortunately, this feature on Mealime doesn’t work when I’m cooking a recipe from another source so I wanted to add it to my custom app so I could always use it. When viewing a recipe, I can click the Add to List button to add the ingredients to my shopping list. I can also select multiple recipes from the gallery by clicking the checkmark and then clicking the Add to List button.
+### Preparing a Shopping List
 
-<ProjectImages images={[
-    {
-        fluid: props.data.images.edges[2].node.childImageSharp.fluid,
-        caption: `The shopping list is populated with all the recipe's ingredients`
-    }
-]}/>
+The shopping list compiles the ingredients of selected recipes. In each recipe details page, I can select Add to List to add all the ingredients to the shopping list. If multiple recipe ingredients are added to the list and there is a repeated ingredient, they are combined.
+
+I can also select multiple recipes on the home page and add all ingredients to the shopping list at one time!
+
+## Features Backlog
+
+This project is still a work in progress. In the coming months, these are some of the features I plan to implement.
+
+ADD BACKLOG COMPONENT HERE!!
 
 export const pageQuery = graphql`
     query cookbookQuery{

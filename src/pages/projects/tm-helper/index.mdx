@@ -13,33 +13,53 @@ ipad: ./images/main/tm-helper.png
 
 import { graphql } from "gatsby"
 
-## Purpose and Goal
+## About the Project
 
-Table top gaming is one of my favorite hobbies. One of my favorite games is Terraforming Mars, a strategy game which my friends and I play frequently. I designed this web application to aid gameplay by helping each player manage their resources.
+I love table top gaming. It’s one of my favorite hobbies. And one of my favorite games is Terraforming Mars, a strategy game which my friends and I play frequently.
 
-In Terraforming Mars, each player plays as a corporation racing to establish Mars as a habitable planet. There are six different resources in game which players spend to create forests, oceans and raise the temperature of Mars. 
+In Terraforming Mars, players take on the roles of corporations competing to make the Red Planet habitable. By playing cards, players collect resources, grow to become more powerful, and eventually raise the temperature, oxygen, and water levels enough to end the game.
 
-Each player tracks their resources with an individual player mat they keep in their play area. Every round, each player gains resources, placing several cubes on the player mat to track it. A player’s mat can at times have 50+ cubes on it, making it a pain to manage and a travesty if bumped.
+Although I adore this game, there is one aspect that I think could be improved; Tracking resources manually with small cubes is tedious.
 
-I designed this web application to be used primarily on a tablet, completely replacing a player’s mat when playing Terraforming Mars. The application tracks each resource and allows the player to complete time consuming tasks with a press of a button.
+This web application aids gameplay by helping each player manage their resources.
 
-## Interesting Features
+### Goals
 
-### Resource Tracking
+- Track resources
+- Speed up the game playtime by auto-generating resources during the production phase
+- Create an interface that is helpful to the player
 
-The Supply section is made up of 6 boxes which represent each unique resource in the game. If a player gains a resource, they tap the plus button is the respective box and then confirm by tapping the ‘Add’ button.
+## Key Features
 
-In the physical game, players track resources with bronze, silver, and gold cubes each worth 1, 5, and 10 resources respectively. This application uses the same color system. 
+### Tracking Player Resources
 
-### Production Button
+When playing Terraforming Mars, players track six different resources by collecting bronze, silver, and gold cubes (worth 1, 5, and 10 respectively) onto their player mat. In my application, the interface mimics the aesthetics of collecting cubes, while also providing a clear total in each resource area. Tapping cubes to decrease your supply is much more satisfying than tapping a simple decrement button!
 
-The production button is the feature which saves the users the most time.
+The amount of bronze, silver, and gold cubes is auto-calculated based on the resource amount. I tweaked this calculation to ensure that players never have to waste time making change.
 
-In between generations (rounds), the players must gain resources based on their production level. When using a player mat, this process involves several minutes of gathering the appropriately colored cubes. However, using this application, it can be done instantly with a touch of a button.
+#### Using React to Build the Interface
 
-### Log
+I decided to use React, a Javascript library, to build this application. The main benefit of using React is the simplicity of tracking application state (I.E. resources, production, score) and the efficiency of component updates when that state changes. Because of this efficiency, this application feels very responsive when adding and removing resources.
 
-In the right bottom corner of the application, I implemented an action log. In case the user (or other players at the table) questions whether appropriate actions have taken place, they can view the log to see every action that has recently happened.
+### Auto-generating Resources
+
+By far, the most time-saving feature of this application is auto-producing resources triggered by tapping the button in the bottom right. 
+
+When initially tapped, this button displays a prompt asking the user for final permission to produce resources based on production levels. While the prompt is displayed, the interface displays how many new resources the player will receive in each supply card. The production preview is an extremely helpful user experience feature because it allows the player to understand how the game state will be affected when the produce button is finally tapped.
+
+When the player confirms to produce by tapping the button again, all the cards update to show the new supply levels.
+
+### Interface and Experience
+
+While designing and play testing this application, there were many features that were added to further enhance the player experience.
+
+#### Developing for Mobile Screens
+
+I developed this application to scale to any screen size. When players use this application, it will be on their own devices which vary widely in size. I ensured that all vital game information is easily viewable on phone and tablet-sized screens.
+
+#### Implementing an Action Log
+
+During play testing, players using the application would often not remember if they completed an action because there was less tactile feedback when adding and subtracting resources. To solve this issue, I decided to add an action log in the bottom left of the application. Whenever a player completes an action, it is logged and displayed on the screen. This dramatically helped players better track the action they were taking on their turn.
 
 
 export const pageQuery = graphql`

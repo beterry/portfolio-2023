@@ -13,25 +13,57 @@ ipad: ./images/main/mnu.png
 
 import { graphql } from "gatsby"
 
-## Purpose and Goal
+## About this Project
 
 In a pandemic era, many restaurants made an abrupt shift to QR-activated digital PDFs in place of traditional physical menus. As a frequent restaurant-goer, I began to notice a lack of well-designed, mobile-friendly menus. The digital PDFs and makeshift lists were not suited for small devices and required endless zooming to read.
 
-This problem presented a business opportunity and I decided to design a product to solve it. The main goal of this project was to design a product that restaurant owners would find useful and purchase.
+To solve all these menu problems I designed and developed this product, MNU, to help restaurant owner’s save time, save money, and make their customers happy.
 
-## Interesting features
+### Goals
 
-### Mobile Friendly
-Because online menus are mainly viewed in the restaurant on the user’s own device, I designed a menu which looks and functions great on all sized devices.
+- Design a mobile-friendly, modern-looking menu website template
+- Allow the client to edit content without a developer
+- Create a landing page to market the product
 
-### Headless CMS
-I wanted restaurant owners to be easily able to edit, add, and remove menu items. I decided to use a headless CMS product called Contentful as a backend for editing menu items. Using the existing backend interface, users would be easily able to edit their menus without me assistance.
+## Key Features
 
-### Category Navigation
-I designed a category navigation menu which allows a user to easily jump to the section they want to see. The food and drink menus are separated and the user can switch between the two with buttons at the top or a floating button in the corner.
+### Product Demo
 
-### Landing Page
-I designed and developed a landing page so restaurant owners can learn more about the product. The landing page features a video which better shows how a restaurant owner can easily update their menu.
+I designed and developed a working demo menu website. This demo demonstrates to customers the numerous benefits of an improved online menu experience.
+
+#### Mobile-friendly
+
+First and foremost, MNU menus are designed to be mobile friendly. This product is designed for restaurants who do not give paper menus to their clientele, but rely on customers scanning QR codes to view the menu on their own devices. On small screens, all components and font sizes are specifically designed with phone usability in mind.
+
+#### Category Navigation
+
+In contrast to PDF menus where the user must pinch and zoom to see menu categories, I designed a usable category navigation at the top of the menu. This allows the customer to easily glimpse all the categories on the menu and quickly jump to their desired section.
+
+On small screens, the category navigation acts like a scrollable carousel. As the customer scrolls down, the category navigation sticks to the top on the screen and dynamically side-scrolls to match the user’s position in the menu.
+
+#### Food and Drink Buttons
+
+At the top of the menu there are food and drink buttons to switch between viewing food or drink items. As the user scrolls down, the buttons move to be located in the bottom right. This button position allows the user to easily reach them with their thumb on mobile devices.
+
+### Headless Content Managment
+
+A headless content management system is simply a nice back-end interface where an author can write website content independently from the user interface. The content is then delivered to the website via an API and injected into the markup.
+
+Restaurants need to change their menus often. It would be extremely time consuming to have to manage and make these changes as the developer. Instead, I hooked the website into a headless content management system so the restaurant owner is able to make changes themselves without the help of the developer. When changes are made in the CMS, the edits are automatically and immediately shown on the corresponding menu website.
+
+#### Contentful
+
+Contentful is a popular headless CMS. I choose Contentful to be the CMS for MNU because the user interface for writing content is very user friendly and the API is extremely fast. 
+
+<Callout emoji='&#128249;'>
+    If you wish to see more about how I hooked the MNU demo to Contentful, checkout this <a href='#'>video</a>.
+</Callout>
+
+### Marketing Landing Page
+
+I designed and developed a landing page so restaurant owners can learn more about the product. The landing page features a video which better shows how a restaurant owner can easily update their menu, a features list, product benefits, and a contact form.
+
+The contact form hooks into a 3rd-party service which sends requests from the form directly to my email inbox.
 
 export const pageQuery = graphql`
     query mnuQuery{

@@ -15,7 +15,8 @@ import colors from "../styles/colors";
 
 // short codes
 import ProjectImages from '../components/ProjectImages'
-const shortcodes = { ProjectImages }
+import Callout from '../components/Callout'
+const shortcodes = { ProjectImages, Callout }
 
 const ProjectLayout = ({ children, pageContext, data }) => {
     const frontmatter = pageContext.frontmatter
@@ -96,6 +97,23 @@ const Content = styled.div`
 
     .project-images {
         margin: 1.5em 0;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            line-height: 1.75;
+        }
+
+        li::before {
+            content: "•";
+            color: ${colors.green.main};
+            font-weight: 900; 
+            display: inline-block; 
+            width: 1em;
+        }
     }
 `
 
