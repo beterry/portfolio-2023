@@ -54,6 +54,9 @@ const colors = {
         10: 'rgba(0,0,0,.1)',
         5: 'rgba(0,0,0,.05)',
     },
+    pink: {
+        main: '#FF9494'
+    }
 }
 
 export default colors 

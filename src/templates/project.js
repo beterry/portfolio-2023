@@ -16,7 +16,8 @@ import colors from "../styles/colors";
 // short codes
 import ProjectImages from '../components/ProjectImages'
 import Callout from '../components/Callout'
-const shortcodes = { ProjectImages, Callout }
+import Backlog from '../components/Backlog'
+const shortcodes = { ProjectImages, Callout, Backlog }
 
 const ProjectLayout = ({ children, pageContext, data }) => {
     const frontmatter = pageContext.frontmatter
@@ -73,14 +74,22 @@ const Main = styled.div`
 `
 
 const Content = styled.div`
-    h1, h2, h3, h4 {
-        
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.55rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
     }
 
     h1, h2 {
         margin-top: 2em;
         padding-bottom: 0.4em;
-        border-bottom: 1px solid lightgray;
+        border-bottom: 1px solid ${colors.gray[10]};
 
         &:first-of-type {
             margin-top: 0;

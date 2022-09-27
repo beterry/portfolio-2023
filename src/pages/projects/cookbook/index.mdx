@@ -19,8 +19,6 @@ I really enjoy cooking dinner with my wife every night. We are no where near exp
 
 I gather recipes from around the internet: Youtube, cooking blogs, and other recipe apps. Many of the recipes I find are great and worth saving; however, finding them on a variety of platforms made organizing my favorites difficult. 
 
-I also find that my cooking process differs from how most recipes are structured. Whereas most recipes have the chef cooking and prepping at the same time, I prefer to prep all my ingredients completely before starting to cook.
-
 I designed and developed this application to collect, organize, and make preparing my favorite meals easier!
 
 ### Goals
@@ -32,7 +30,7 @@ I designed and developed this application to collect, organize, and make prepari
 
 <ProjectImages images={[
     {
-        fluid: props.data.images.edges[3].node.childImageSharp.fluid,
+        fluid: props.data.images.edges[4].node.childImageSharp.fluid,
         caption: 'The recipe details page has tabs for ingredients, preparation instructions, and cooking steps.'
     }
 ]}/>
@@ -49,13 +47,20 @@ For developers, there are many great database options nowadays. For this project
 
 Firebase is maintained by Google and provides a suite of backend tools for web applications. One of their tools, Realtime Database, was the perfect fit for this project. A Firebase Realtime Database is cloud-hosted, synced across all clients in realtime, and also makes data available offline.
 
+<ProjectImages images={[
+    {
+        fluid: props.data.images.edges[1].node.childImageSharp.fluid,
+        caption: `In the Firebase console, I'm able to view all the data for saved recipes. The recipe IDs are generated automatically when initially uploaded.`
+    }
+]}/>
+
 #### REST API
 
 Any Firebase Realtime Database can be used as a REST API. This allows me to easily interact with the the recipe data via HTTPS requests. 
 
 For example, I retrieve all recipes in the database by sending a GET request to this URL:
 
-<Callout>
+<Callout emoji='&#127760;'>
     https://cookbook-e918c-default-rtdb.firebaseio.com/recipes.json
 </Callout>
 
@@ -81,11 +86,18 @@ To help security, Firebase can be configured to have user sessions. When a user�
 
 I developed an intuitive editing form so I can efficiently add recipes from around the web. The form is able to create, delete, and edit every bit of recipe information in the database. There is never a need for me to touch the database directly, all the interaction is done through the editing form.
 
+<ProjectImages images={[
+    {
+        fluid: props.data.images.edges[0].node.childImageSharp.fluid,
+        caption: 'The recipe edit form makes all database information editable.'
+    }
+]}/>
+
 #### Angular Reactive Forms
 
 One of the main reasons I decided to use Angular to build this project is the framework’s approach to forms. Angular reactive forms provide direct access to the underlying recipe object model retrieved from the database. When I click the save button in the from, the data is already compiled and ready to be sent to the database to be saved. 
 
-<Callout>
+<Callout emoji='&#128221;'>
     Checkout the <a href='#'>Recipe Form Component</a>
 </Callout>
 
@@ -97,17 +109,94 @@ There is a variety of form validation implemented in the editing form. For examp
 
 One of the main differences between my cookbook and other recipe applications is the inclusion of the Prep tab. In the Prep tab, I’m able to view all the steps to prepare food before starting to cook. Personally, I believe this feature makes cooking less stressful.
 
+<ProjectImages images={[
+    {
+        fluid: props.data.images.edges[2].node.childImageSharp.fluid,
+        caption: 'The preparation tab shows all steps needed to be completed before cooking.'
+    }
+]}/>
+
 ### Preparing a Shopping List
 
 The shopping list compiles the ingredients of selected recipes. In each recipe details page, I can select Add to List to add all the ingredients to the shopping list. If multiple recipe ingredients are added to the list and there is a repeated ingredient, they are combined.
 
 I can also select multiple recipes on the home page and add all ingredients to the shopping list at one time!
 
+<ProjectImages images={[
+    {
+        fluid: props.data.images.edges[3].node.childImageSharp.fluid,
+        caption: 'Multiple recipes can be compiled into one shopping list.'
+    }
+]}/>
+
 ## Features Backlog
 
 This project is still a work in progress. In the coming months, these are some of the features I plan to implement.
 
-ADD BACKLOG COMPONENT HERE!!
+<Backlog 
+    backlog={[
+        {
+            title: 'Skeleton loading',
+            description: 'Gallery and recipe details',
+            tags: ['UX', 'Design']
+        },
+        {
+            title: 'Improve edit form UI',
+            tags: ['Design']
+        },
+        {
+            title: 'Re-factor moving functions in form',
+            tags: ['Development']
+        },
+        {
+            title: 'Add better error handling when recipe is not found in edit form',
+            tags: ['UX']
+        },
+        {
+            title: 'Add Firebase ID instead of temporary ID',
+            tags: ['Defect']
+        },
+        {
+            title: 'Update ingredient badge as ingredients are crossed off the list',
+            tags: ['UX']
+        },
+        {
+            title: 'Delete ingredients on page navigation way from shopping list',
+            tags: ['UX']
+        },
+        {
+            title: 'Clicking anywhere in the ingredient row should check it off',
+            tags: ['UX']
+        },
+        {
+            title: 'Implement unit testing',
+            tags: ['Testing']
+        },
+        {
+            title: 'Improved ingredient selection',
+            description: 'Store ingredients in Firebase',
+            tags: ['Development']
+        },
+        {
+            title: ' Add custom ingredients to shopping list',
+            tags: ['UX']
+        },
+        {
+            title: 'Store shopping list in Firebase so it saves',
+            tags: ['Development']
+        },
+        {
+            title: 'Make dialog accessible from screen readers',
+            tags: ['UX']
+        },
+    ]}
+    inProgress={[
+        {
+            title: 'Add background pattern',
+            tags: ['Design']
+        },
+    ]}
+/>
 
 export const pageQuery = graphql`
     query cookbookQuery{
