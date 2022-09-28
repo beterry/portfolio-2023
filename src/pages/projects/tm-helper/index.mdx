@@ -37,6 +37,13 @@ When playing Terraforming Mars, players track six different resources by collect
 
 The amount of bronze, silver, and gold cubes is auto-calculated based on the resource amount. I tweaked this calculation to ensure that players never have to waste time making change.
 
+<ProjectImages images={[
+    {
+        fluid: props.data.images.edges[0].node.childImageSharp.fluid,
+        caption: 'When the player taps a cube, it becomes transpartent. A form appears in the bottom of the resource card to confirm the amount to spend.'
+    }
+]}/>
+
 #### Using React to Build the Interface
 
 I decided to use React, a Javascript library, to build this application. The main benefit of using React is the simplicity of tracking application state (I.E. resources, production, score) and the efficiency of component updates when that state changes. Because of this efficiency, this application feels very responsive when adding and removing resources.
@@ -49,6 +56,13 @@ When initially tapped, this button displays a prompt asking the user for final p
 
 When the player confirms to produce by tapping the button again, all the cards update to show the new supply levels.
 
+<ProjectImages images={[
+    {
+        fluid: props.data.images.edges[1].node.childImageSharp.fluid,
+        caption: 'When the player taps the Produce button in the bottom right, all resource cards show how much the player will gain. Another prompt appears to make sure the player wants to produce.'
+    }
+]}/>
+
 ### Interface and Experience
 
 While designing and play testing this application, there were many features that were added to further enhance the player experience.
@@ -56,6 +70,13 @@ While designing and play testing this application, there were many features that
 #### Developing for Mobile Screens
 
 I developed this application to scale to any screen size. When players use this application, it will be on their own devices which vary widely in size. I ensured that all vital game information is easily viewable on phone and tablet-sized screens.
+
+<ProjectImages mobile images={[
+    {
+        fluid: props.data.images.edges[2].node.childImageSharp.fluid,
+        caption: 'The application layout adjusts to smaller mobile screens.'
+    }
+]}/>
 
 #### Implementing an Action Log
 
