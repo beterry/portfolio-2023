@@ -27,8 +27,8 @@ const LandingHeader = ({img}) => {
                             <h1>Web Developer</h1>
                         </div>
                         <ContentStack>
-                            <p>I’m a creative professional who loves designing and developing great web experiences. This is my portfolio where I write about my recent work and the technology I’m currently using and learning.</p>
-                            <p>Something about looking for a new opportunity. But make it polite and professional.</p>
+                            <p>I’m a creative professional who loves designing and developing great web experiences. This is my portfolio, highlighting some of my recent and exciting projects.</p>
+                            <p>I'm currently searching for my next professional adventure.</p>
                         </ContentStack>
                         <div>
                             <ContainedButton>Resume</ContainedButton>
@@ -61,10 +61,15 @@ const Grid = styled.div`
 const Info = styled(ContentStack)`
     justify-content: start;
     color: white;
-
+    
     h1 {
         font-size: 2.5rem;
         font-weight: 900;
+    }
+
+    @media screen and (min-width: 60rem) {
+        /* this centers the text in the blue area */
+        margin-top: -56px;
     }
 `
 
