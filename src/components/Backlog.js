@@ -64,8 +64,8 @@ const Card = styled.div`
     border-radius: 4px;
 
     h4 {
-        font-size: 1rem;
-        margin-top: 0;
+        font-size: 1rem !important;
+        margin-top: 0 !important;
     }
 `
 

@@ -82,6 +82,49 @@ I developed this application to scale to any screen size. When players use this 
 
 During play testing, players using the application would often not remember if they completed an action because there was less tactile feedback when adding and subtracting resources. To solve this issue, I decided to add an action log in the bottom left of the application. Whenever a player completes an action, it is logged and displayed on the screen. This dramatically helped players better track the action they were taking on their turn.
 
+## Features Backlog
+
+This project is still a work in progress. In the coming months, these are some of the features I plan to implement.
+
+<Backlog 
+    backlog={[
+        {
+            title: 'Corporation selection',
+            tags: ['Enhancement', 'Development']
+        },
+        {
+            title: 'Make gold and silver cubes larger',
+            tags: ['Design']
+        },
+        {
+            title: 'Improve button hover animations',
+            tags: ['Design', 'UX']
+        },
+        {
+            title: 'Improve grid layout',
+            tags: ['Design', 'UX']
+        },
+        {
+            title: 'Adjust placing tile logging descriptions',
+            tags: ['UX']
+        },
+        {
+            title: 'Gameplay sessions with other players at the table',
+            tags: ['Development']
+        },
+    ]}
+    inProgress={[
+        {
+            title: 'Allow custom input of negative numbers',
+            tags: ['Defect', 'Development']
+        },
+        {
+            title: 'Consolidate increment and decrement functions',
+            tags: ['Development']
+        },
+    ]}
+/>
+
 
 export const pageQuery = graphql`
     query tmHelperQuery{
