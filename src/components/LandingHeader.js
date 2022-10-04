@@ -3,15 +3,18 @@ import styled, { keyframes } from 'styled-components'
 import Img from 'gatsby-image'
 
 // components
-import { Container, ContentStack } from './Layout';
-import { ContainedButton } from './Buttons';
+import { Container, ContentStack } from './Layout'
+import { ContainedButton } from './Buttons'
 
 // styles
-import { Eyebrow } from './Fonts';
+import { Eyebrow } from './Fonts'
 import colors from '../styles/colors'
 
 // icons
-import { MdOutlineFrontHand } from 'react-icons/md';
+import { MdOutlineFrontHand } from 'react-icons/md'
+
+// resume
+import resume from '../images/resume/Ben Terry Resume 2023.pdf'
 
 const LandingHeader = ({img}) => {
     return (
@@ -31,7 +34,14 @@ const LandingHeader = ({img}) => {
                             <p>I'm currently searching for my next professional adventure.</p>
                         </ContentStack>
                         <div>
-                            <ContainedButton>Resume</ContainedButton>
+                            <ResumeButton 
+                                as='a' 
+                                href={resume}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                Resume
+                            </ResumeButton>
                         </div>
                     </Info>
                     <ImageContainer>
@@ -109,6 +119,10 @@ const Hand = styled.div`
     animation-iteration-count: infinite;
     transform-origin: 70% 70%;
     display: inline-block;
+`
+
+const ResumeButton = styled(ContainedButton)`
+    display: inline-flex;
 `
 
 export default LandingHeader

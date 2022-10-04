@@ -23,9 +23,9 @@ const Year = ({year, title, children}) => {
     )
 }
 
-export default () => {
+const Timeline = () => {
     return (
-        <Timeline>
+        <div>
             <h2>My Timeline</h2>
             <Padding size='lg' />
             <Year year='2016' title='Graduated with Bachelor of Science degree'>
@@ -43,11 +43,9 @@ export default () => {
                 <p>I was hired by Deacom to work in their eCommerce department. In this role I’m responsible for developing several customer eCommerce websites.</p>
                 <p>I love being able to develop full-time everyday. I’m constantly improving my web development skills and learning how to become a better developer.</p>
             </Year>
-        </Timeline>
+        </div>
     )
 }
-
-const Timeline = styled.div``
 
 const TimelineSection = styled.div`
     position: relative;
@@ -73,3 +71,5 @@ const Dot = styled.div`
     left: 0;
     top: 5px;
 `
+
+export default Timeline
