@@ -28,12 +28,11 @@ I designed and developed this application to collect, organize, and make prepari
 - Consolidate my favorite recipes from around the web
 - Create a shopping list from selected recipes
 
-<ProjectImages images={[
-    {
-        fluid: props.data.images.edges[4].node.childImageSharp.fluid,
-        caption: 'The recipe details page has tabs for ingredients, preparation instructions, and cooking steps.'
-    }
-]}/>
+<Screenshot 
+    image={props.data.images.edges[4].node.childImageSharp.fluid}
+    caption='The recipe details page has tabs for ingredients, preparation instructions, and cooking steps.'
+    url={props.pageContext.frontmatter.demo}
+/>
 
 ## Key Features
 
@@ -47,12 +46,11 @@ For developers, there are many great database options nowadays. For this project
 
 Firebase is maintained by Google and provides a suite of backend tools for web applications. One of their tools, Realtime Database, was the perfect fit for this project. A Firebase Realtime Database is cloud-hosted, synced across all clients in realtime, and also makes data available offline.
 
-<ProjectImages images={[
-    {
-        fluid: props.data.images.edges[1].node.childImageSharp.fluid,
-        caption: `In the Firebase console, I'm able to view all the data for saved recipes. The recipe IDs are generated automatically when initially uploaded.`
-    }
-]}/>
+<Screenshot 
+    image={props.data.images.edges[1].node.childImageSharp.fluid}
+    caption={`In the Firebase console, I'm able to view all the data for saved recipes. The recipe IDs are generated automatically when initially uploaded.`}
+    url='firebase.google.com'
+/>
 
 #### REST API
 
@@ -86,12 +84,11 @@ To help security, Firebase can be configured to have user sessions. When a userâ
 
 I developed an intuitive editing form so I can efficiently add recipes from around the web. The form is able to create, delete, and edit every bit of recipe information in the database. There is never a need for me to touch the database directly, all the interaction is done through the editing form.
 
-<ProjectImages images={[
-    {
-        fluid: props.data.images.edges[0].node.childImageSharp.fluid,
-        caption: 'The recipe edit form makes all database information editable.'
-    }
-]}/>
+<Screenshot 
+    image={props.data.images.edges[0].node.childImageSharp.fluid}
+    caption='The recipe edit form makes all database information editable.'
+    url={props.pageContext.frontmatter.demo}
+/>
 
 #### Angular Reactive Forms
 
@@ -109,12 +106,11 @@ There is a variety of form validation implemented in the editing form. For examp
 
 One of the main differences between my cookbook and other recipe applications is the inclusion of the Prep tab. In the Prep tab, Iâ€™m able to view all the steps to prepare food before starting to cook. Personally, I believe this feature makes cooking less stressful.
 
-<ProjectImages images={[
-    {
-        fluid: props.data.images.edges[2].node.childImageSharp.fluid,
-        caption: 'The preparation tab shows all steps needed to be completed before cooking.'
-    }
-]}/>
+<Screenshot 
+    image={props.data.images.edges[2].node.childImageSharp.fluid}
+    caption='The preparation tab shows all steps needed to be completed before cooking.'
+    url={props.pageContext.frontmatter.demo}
+/>
 
 ### Preparing a Shopping List
 
@@ -122,12 +118,11 @@ The shopping list compiles the ingredients of selected recipes. In each recipe d
 
 I can also select multiple recipes on the home page and add all ingredients to the shopping list at one time!
 
-<ProjectImages images={[
-    {
-        fluid: props.data.images.edges[3].node.childImageSharp.fluid,
-        caption: 'Multiple recipes can be compiled into one shopping list.'
-    }
-]}/>
+<Screenshot 
+    image={props.data.images.edges[3].node.childImageSharp.fluid}
+    caption='Multiple recipes can be compiled into one shopping list.'
+    url={props.pageContext.frontmatter.demo}
+/>
 
 ## Features Backlog
 

@@ -8,6 +8,7 @@ import ProjectHeader from '../components/ProjectHeader'
 import { Container, Padding, ContentStack } from "../components/Layout";
 import { ContainedButton } from '../components/Buttons';
 import Ipad from '../components/devices/Ipad'
+import Screenshot from '../components/Screenshot'
 
 // styles
 import { Eyebrow } from "../components/Fonts";
@@ -17,7 +18,7 @@ import colors from "../styles/colors";
 import ProjectImages from '../components/ProjectImages'
 import Callout from '../components/Callout'
 import Backlog from '../components/Backlog'
-const shortcodes = { ProjectImages, Callout, Backlog }
+const shortcodes = { ProjectImages, Callout, Backlog, Screenshot }
 
 const ProjectLayout = ({ children, pageContext, data }) => {
     const frontmatter = pageContext.frontmatter
@@ -30,7 +31,7 @@ const ProjectLayout = ({ children, pageContext, data }) => {
                 madeWith={frontmatter.madeWith}
                 color={frontmatter.color}
                 textColor={frontmatter.textColor}
-                mockup={<Ipad url={frontmatter.demo} screenshot={data.mainImage.edges[0].node.childImageSharp.fluid}/>}
+                mockup={<Screenshot url={frontmatter.demo} image={data.mainImage.edges[0].node.childImageSharp.fluid}/>}
                 demo={frontmatter.demo}
                 code={frontmatter.code}
             />

@@ -73,12 +73,11 @@ Contentful is a popular headless CMS. I choose Contentful to be the CMS for MNU 
     If you wish to see more about how I hooked the MNU demo to Contentful, checkout this <a href='#'>video</a>.
 </Callout>
 
-<ProjectImages images={[
-    {
-        fluid: props.data.images.edges[2].node.childImageSharp.fluid,
-        caption: 'A screenshot of the Contentful portal. The restaurant has full control of all menu content via this CMS.'
-    }
-]}/>
+<Screenshot 
+    image={props.data.images.edges[2].node.childImageSharp.fluid}
+    caption='A screenshot of the Contentful portal. The restaurant has full control of all menu content via this CMS.'
+    url='app.contentful.com'
+/>
 
 ### Marketing Landing Page
 
@@ -86,12 +85,12 @@ I designed and developed a landing page so restaurant owners can learn more abou
 
 The contact form hooks into a 3rd-party service which sends requests from the form directly to my email inbox.
 
-<ProjectImages images={[
-    {
-        fluid: props.data.images.edges[3].node.childImageSharp.fluid,
-        caption: 'The landing page markets MNU to prospective customers.'
-    }
-]}/>
+<Screenshot 
+    image={props.data.images.edges[3].node.childImageSharp.fluid}
+    caption='The landing page markets MNU to prospective customers.'
+    url='https://mnumenu.com'
+/>
+
 
 ## Features Backlog
 
