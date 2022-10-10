@@ -35,12 +35,12 @@ I designed and developed a working demo menu website. This demo demonstrates to 
 
 First and foremost, MNU menus are designed to be mobile friendly. This product is designed for restaurants who do not give paper menus to their clientele, but rely on customers scanning QR codes to view the menu on their own devices. On small screens, all components and font sizes are specifically designed with phone usability in mind.
 
-<ProjectImages mobile images={[
-    {
-        fluid: props.data.images.edges[0].node.childImageSharp.fluid,
-        caption: 'The menu is designed to be used on any sized device.'
-    }
-]}/>
+<Screenshot 
+    image={props.data.images.edges[0].node.childImageSharp.fluid}
+    caption='The menu is designed to be used on any sized device.'
+    url='https://demo.mnumenu.com'
+    mobile
+/>
 
 #### Category Navigation
 
@@ -52,12 +52,12 @@ On small screens, the category navigation acts like a scrollable carousel. As th
 
 At the top of the menu there are food and drink buttons to switch between viewing food or drink items. As the user scrolls down, the buttons move to be located in the bottom right. This button position allows the user to easily reach them with their thumb on mobile devices.
 
-<ProjectImages mobile images={[
-    {
-        fluid: props.data.images.edges[1].node.childImageSharp.fluid,
-        caption: 'The category nevigation sticks to the top of the screen and horizontally auto-scrolls. The food and drink buttons are conviently located in the bottom right.'
-    }
-]}/>
+<Screenshot 
+    image={props.data.images.edges[1].node.childImageSharp.fluid}
+    caption='The category nevigation sticks to the top of the screen and horizontally auto-scrolls. The food and drink buttons are conviently located in the bottom right.'
+    url='https://demo.mnumenu.com'
+    mobile
+/>
 
 ### Headless Content Managment
 

@@ -1,42 +1,51 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider, css } from 'styled-components'
 import Img from 'gatsby-image'
 
 // style
-// import colors from '../styles/colors'
+import colors from '../styles/colors'
 
 // icons
 import { IoChevronBackOutline } from 'react-icons/io5'
 import { IoChevronForwardOutline } from 'react-icons/io5'
 import { IoSearch } from 'react-icons/io5'
 
-const Screenshot = ({image, caption, url}) => {
+const Screenshot = ({image, caption, url, mobile}) => {
     return (
         <Figure>
-            <Screen>
-                {/* BROSWSER BAR */}
-                <BrowserBar>
-                    <Dots>
-                        <Dot className='red'></Dot>
-                        <Dot className='yellow'></Dot>
-                        <Dot className='green'></Dot>
-                    </Dots>
-                    <Buttons>
-                        <IoChevronBackOutline />
-                        <IoChevronForwardOutline />
-                    </Buttons>
-                    <Searchbar>
-                        <IoSearch />
-                        {url}
-                    </Searchbar>
-                </BrowserBar>
+            <ThemeProvider theme={{mobile: !!mobile}}>
+                <Background>
+                    <Screen>
+                        { mobile && <Img fluid={image} /> }
 
-                {/* SCREENSHOT IMAGE */}
-                <Img fluid={image} />
-            </Screen>
+                        {/* MOBILE BROSWSER BAR */}
+                        <BrowserBar>
+                            { !mobile && 
+                                <>
+                                <Dots>
+                                    <Dot className='red'></Dot>
+                                    <Dot className='yellow'></Dot>
+                                    <Dot className='green'></Dot>
+                                </Dots>
+                                <Buttons>
+                                    <IoChevronBackOutline />
+                                    <IoChevronForwardOutline />
+                                </Buttons>
+                                </>
+                            }
+                            <Searchbar>
+                                <IoSearch />
+                                <URL>{url}</URL>
+                            </Searchbar>
+                        </BrowserBar>
 
+                        {/* DESKTOP SCREENSHOT IMAGE */}
+                        { !mobile && <Img fluid={image} /> }
+                    </Screen>
+
+                </Background>
+            </ThemeProvider>
             {caption && <Caption>{caption}</Caption>}
-
         </Figure>
     )
 }
@@ -46,23 +55,43 @@ const Figure = styled.figure`
     gap: 16px;
 `
 
+const Background = styled.div`
+    display: flex;
+    justify-content: center;
+    background-color: ${colors.gray[10]};
+    border-radius: 12px;
+
+    ${props => {
+        if (props.theme.mobile) {
+            return css`
+                padding: 16px;
+                border: 1px solid lightgray;
+            `
+        }
+    }}
+`
+
 const Screen = styled.div`
+    width: 100%;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 0 38px rgba(0,0,0,0.30), 0 0 12px rgba(0,0,0,0.22);
+
+    max-width: ${props => props.theme.mobile && '225px'};
 `
 
 const BrowserBar = styled.div`
     height: 40px;
     background-color: #EFEBED;
-    border-bottom: 1px solid #5E5D5E;
+    border-bottom: ${props => !props.theme.mobile && '1px solid #DBDCDC'};
+    border-top: ${props => props.theme.mobile && '1px solid #DBDCDC'};
 
     display: grid;
-    grid-template-columns: auto auto 1fr;
+    grid-template-columns: ${props => props.theme.mobile ? '1fr' : 'auto auto 1fr'};
     align-items: center;
     gap: 16px;
 
-    padding: 0 16px;
+    padding: 0 ${props => props.theme.mobile ? '8px' : '16px'};
 `
 
 const Dots = styled.div`
@@ -111,6 +140,12 @@ const Searchbar = styled.div`
 
     font-size: 0.75rem;
     color: #9D999A;
+`
+
+const URL = styled.div`
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 `
 
 const Caption = styled.figcaption`

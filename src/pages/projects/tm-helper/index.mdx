@@ -69,12 +69,12 @@ While designing and play testing this application, there were many features that
 
 I developed this application to scale to any screen size. When players use this application, it will be on their own devices which vary widely in size. I ensured that all vital game information is easily viewable on phone and tablet-sized screens.
 
-<ProjectImages mobile images={[
-    {
-        fluid: props.data.images.edges[2].node.childImageSharp.fluid,
-        caption: 'The application layout adjusts to smaller mobile screens.'
-    }
-]}/>
+<Screenshot 
+    image={props.data.images.edges[2].node.childImageSharp.fluid}
+    caption='The application layout adjusts to smaller mobile screens.'
+    url={props.pageContext.frontmatter.demo}
+    mobile
+/>
 
 #### Implementing an Action Log
 
