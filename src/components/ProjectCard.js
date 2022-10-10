@@ -29,7 +29,7 @@ const Card = styled(Link)`
     position: relative;
     border-radius: 8px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    background-color: ${props => props.bk};
+    background-color: ${colors.blue.dark};
     overflow: hidden;
 
     display: grid;
@@ -50,7 +50,7 @@ const Card = styled(Link)`
 `
 
 const CardContent = styled(ContentStack)`
-    color: ${props => props.textColor};
+    color: white;
     order: 2;
 
     @media screen and (min-width: 34.375rem) {

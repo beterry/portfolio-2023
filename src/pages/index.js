@@ -7,8 +7,8 @@ import Layout from "../components/Layout"
 import { Container, Padding, ContentStack } from "../components/Layout"
 import LandingHeader from '../components/LandingHeader'
 import ProjectCard from "../components/ProjectCard"
-import Ipad from "../components/devices/Ipad"
 import Timeline from "../components/Timeline"
+import Screenshot from "../components/Screenshot";
 
 // styles
 import { Eyebrow } from "../components/Fonts"
@@ -44,7 +44,7 @@ const IndexPage = ({data}) => {
                                     textColor={project.textColor}
                                     description={project.description}
                                     tags={project.technology}
-                                    mockup={<Ipad url={project.demo} screenshot={project.ipad.childImageSharp.fluid}/>}
+                                    mockup={<Screenshot url={project.demo} image={project.ipad.childImageSharp.fluid}/>}
                                     link={project.slug}
                                     key={project.slug}
                                 />

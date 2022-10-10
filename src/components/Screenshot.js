@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 // style
-import colors from '../styles/colors'
+// import colors from '../styles/colors'
 
 // icons
 import { IoChevronBackOutline } from 'react-icons/io5'
@@ -17,9 +17,9 @@ const Screenshot = ({image, caption, url}) => {
                 {/* BROSWSER BAR */}
                 <BrowserBar>
                     <Dots>
-                        <Dot color='#EF6C5C'></Dot>
-                        <Dot color='#F6BD45'></Dot>
-                        <Dot color='#5CC24E'></Dot>
+                        <Dot className='red'></Dot>
+                        <Dot className='yellow'></Dot>
+                        <Dot className='green'></Dot>
                     </Dots>
                     <Buttons>
                         <IoChevronBackOutline />
@@ -44,8 +44,6 @@ const Screenshot = ({image, caption, url}) => {
 const Figure = styled.figure`
     display: grid;
     gap: 16px;
-
-    margin-top: 1.5em;
 `
 
 const Screen = styled.div`
@@ -56,7 +54,7 @@ const Screen = styled.div`
 
 const BrowserBar = styled.div`
     height: 40px;
-    background-color: #353435;
+    background-color: #EFEBED;
     border-bottom: 1px solid #5E5D5E;
 
     display: grid;
@@ -76,14 +74,28 @@ const Dot = styled.div`
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: ${props => props.color};
+
+    &.red {
+        background-color: #EF6C5C;
+        border: 1px solid #DA5746;
+    }
+
+    &.yellow {
+        background-color: #F6BD45;
+        border: 1px solid #E0A737;
+    }
+
+    &.green {
+        background-color: #5CC24E;
+        border: 1px solid #54AE3F;
+    }
 `
 
 const Buttons = styled.div`
     display: flex;
     gap: 8px;
     font-size: 20px;
-    color: rgba(255,255,255,.3);
+    color: #AFACAD;
 `
 
 const Searchbar = styled.div`
@@ -94,11 +106,11 @@ const Searchbar = styled.div`
     padding: 0 8px;
 
     height: 25px;
-    background-color: #282728;
+    background-color: #E3DFE0;
     border-radius: 4px;
 
     font-size: 0.75rem;
-    color: rgba(255,255,255,.5);
+    color: #9D999A;
 `
 
 const Caption = styled.figcaption`
@@ -106,4 +118,4 @@ const Caption = styled.figcaption`
     color: gray;
 `
 
-export default Screenshot
+export { Screenshot as default, Figure}

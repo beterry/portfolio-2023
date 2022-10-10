@@ -7,8 +7,7 @@ import Layout from "../components/Layout"
 import ProjectHeader from '../components/ProjectHeader'
 import { Container, Padding, ContentStack } from "../components/Layout";
 import { ContainedButton } from '../components/Buttons';
-import Ipad from '../components/devices/Ipad'
-import Screenshot from '../components/Screenshot'
+import { default as Screenshot, Figure} from '../components/Screenshot'
 
 // styles
 import { Eyebrow } from "../components/Fonts";
@@ -24,7 +23,7 @@ const ProjectLayout = ({ children, pageContext, data }) => {
     const frontmatter = pageContext.frontmatter
 
     return (
-        <Layout color={frontmatter.color} navTextColor={frontmatter.textColor}>
+        <Layout>
             <ProjectHeader 
                 title={frontmatter.title}
                 description={frontmatter.description}
@@ -124,6 +123,10 @@ const Content = styled.div`
             display: inline-block; 
             width: 1em;
         }
+    }
+
+    ${Figure} {
+        margin-top: 2em;
     }
 `
 
