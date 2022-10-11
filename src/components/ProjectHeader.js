@@ -71,11 +71,13 @@ const Header = styled.header`
 `
 
 const Grid = styled.div`
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
-    align-items: center;
-
+    
     @media screen and (min-width: 60rem) {
+        display: grid;
+        align-items: center;
         grid-template-columns: 1fr 50%;
     }
 `
