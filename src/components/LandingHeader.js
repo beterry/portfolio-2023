@@ -30,8 +30,8 @@ const LandingHeader = ({img}) => {
                             <h1>Web Developer</h1>
                         </div>
                         <ContentStack>
-                            <p>I’m a creative professional who loves designing and developing great web experiences. This is my portfolio, highlighting some of my recent and exciting projects.</p>
-                            <p>I'm currently searching for my next professional adventure.</p>
+                            <p>I’m a creative professional who loves <Highlight>designing</Highlight> and <Highlight>developing</Highlight> great web experiences. Currently, I'm working as Web Developer II at ECI Solutions, developing eCommerce websites for existing ERP clients.</p>
+                            <p>I enjoy building side projects in my personnal time. Constantly flexing my creative muscles allows me to learn new web technologies and further improve my development skills. This is my portfolio, highlighting some of my recent projects.</p>
                         </ContentStack>
                         <div>
                             <ResumeButton 
@@ -81,6 +81,10 @@ const Info = styled(ContentStack)`
         /* this centers the text in the blue area */
         margin-top: -56px;
     }
+`
+
+const Highlight = styled.strong`
+    color: ${colors.green.main};
 `
 
 const Overline = styled(Eyebrow)`

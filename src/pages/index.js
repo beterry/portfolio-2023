@@ -35,7 +35,6 @@ const IndexPage = ({data}) => {
                             <ContentStack>
                                 <h2>Portfolio</h2>
                                 <p>These are my favorite personal projects from past few years.</p>
-                                <p>I’m constantly building side projects outside of my professional work day-to-day. Constantly flexing my creative muscles allows me to learn new technologies and further improve on my existing skills.</p>
                             </ContentStack>
                             {projects.map(project => 
                                 <ProjectCard 
@@ -56,7 +55,7 @@ const IndexPage = ({data}) => {
                         <Car size='lg'>
                             <ContentStack>
                                 <Eyebrow as='h3'>My Top Skills</Eyebrow>
-                                <p>I strive to be constantly leveling up my web development! Over the years, these are some of the technologies that I've enjoyed learning and developing with.</p>
+                                <p>I strive to be constantly leveling up my web development skills! Over the years, these are some of the technologies that I've enjoyed learning and developing with.</p>
                                 <UnorderedList>
                                     <li>React</li>
                                     <li>Angular</li>
@@ -68,7 +67,6 @@ const IndexPage = ({data}) => {
                             </ContentStack>
                             <ContentStack>
                                 <Eyebrow as='h3'>Let's Connect</Eyebrow>
-                                <p>Would I make a great fit into your development team? Please reach out!</p>
                                 <div>
                                     <Contact href="tel:7174190478">
                                         <MdSmartphone />

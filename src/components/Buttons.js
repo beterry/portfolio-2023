@@ -7,6 +7,7 @@ const Button = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     text-align: center;
     min-height: 2.5rem;
     min-width: 4rem;
@@ -44,7 +45,7 @@ const OutlineButton = styled(Button)`
 `
 
 const TextButton = styled(Button)`
-    color: ${props => props.white ? 'white' : colors.blue.main};
+    color: ${props => props.white ? 'white' : colors.blue.light};
     padding: ${props => props.icon ? '0 1rem 0 .5rem' : null};
     border-radius: .25rem;
     &:hover{

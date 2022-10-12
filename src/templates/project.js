@@ -6,12 +6,15 @@ import { MDXProvider } from "@mdx-js/react"
 import Layout from "../components/Layout"
 import ProjectHeader from '../components/ProjectHeader'
 import { Container, Padding, ContentStack } from "../components/Layout";
-import { ContainedButton } from '../components/Buttons';
+import { ContainedButton, TextButton } from '../components/Buttons';
 import { default as Screenshot, Figure} from '../components/Screenshot'
 
 // styles
 import { Eyebrow } from "../components/Fonts";
 import colors from "../styles/colors";
+
+// icons
+import { BsGithub } from 'react-icons/bs'
 
 // short codes
 import ProjectImages from '../components/ProjectImages'
@@ -51,8 +54,13 @@ const ProjectLayout = ({ children, pageContext, data }) => {
                             <ContentStack>
                                 <Eyebrow>Check it out</Eyebrow>
                                 <ProjectButtons>
-                                    {frontmatter.code && <ContainedButton as='a' target='_blank' href={frontmatter.code}>View Code</ContainedButton>}
-                                    {frontmatter.demo && <ContainedButton as='a' target='_blank' href={frontmatter.demo}>Try it out</ContainedButton>}
+                                    {frontmatter.code && 
+                                        <ContainedButton as='a' target='_blank' href={frontmatter.code}>
+                                            <BsGithub />
+                                            View Code
+                                        </ContainedButton>
+                                    }
+                                    {frontmatter.demo && <TextButton as='a' target='_blank' href={frontmatter.demo}>Try it out</TextButton>}
                                 </ProjectButtons>
                             </ContentStack>
                         </Car>

@@ -3,12 +3,13 @@ import styled from 'styled-components'
 
 // components
 import { Container, ContentStack } from './Layout';
-import { ContainedButton } from './Buttons';
+import { ContainedButton, TextButton } from './Buttons';
 
 // icons
 import { IoLogoReact } from 'react-icons/io5'
 import { IoLogoAngular } from 'react-icons/io5'
 import { IoLogoJavascript } from 'react-icons/io5'
+import { BsGithub } from 'react-icons/bs'
 
 // styles
 import { Eyebrow } from './Fonts';
@@ -51,8 +52,13 @@ const ProjectHeader = ({
                             <p>{description}</p>
                         </ContentStack>
                         <ProjectButtons>
-                            {code && <ContainedButton as='a' target='_blank' href={code}>View Code</ContainedButton>}
-                            {demo && <ContainedButton as='a' target='_blank' href={demo}>Try it out</ContainedButton>}
+                            {code &&
+                                <ContainedButton as='a' target='_blank' href={code}>
+                                    <BsGithub />
+                                    View Code
+                                </ContainedButton>
+                            }
+                            {demo && <TextButton as='a' target='_blank' href={demo}>Try it out</TextButton>}
                         </ProjectButtons>
                     </Info>
                     <Mockup>
@@ -93,7 +99,7 @@ const Info = styled(ContentStack)`
 `
 
 const Overline = styled(Eyebrow)`
-    color: ${colors.blue.main};
+    color: ${colors.green.main};
     display: flex;
     gap: 8px;
     align-items: center;

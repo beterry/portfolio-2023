@@ -8,10 +8,10 @@ import { ContentStack } from './Layout';
 // styles
 import colors from "../styles/colors";
 
-const ProjectCard = ({title, background, tags, description, textColor = 'black', mockup, link}) => {
+const ProjectCard = ({title, tags, description, mockup, link}) => {
     return (
-        <Card to={link} bk={background}>
-            <CardContent textColor={textColor}>
+        <Card to={link}>
+            <CardContent>
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <TagList>
@@ -42,6 +42,12 @@ const Card = styled(Link)`
     
     text-decoration: none;
     color: inherit;
+
+    transition: .25s ease-in-out;
+
+    &:hover {
+        transform: scale(1.01);
+    }
     
     @media screen and (min-width: 34.375rem) {
         padding: 32px;
@@ -68,16 +74,23 @@ const TagList = styled.ul`
 
 const Tag = styled.li`
     display: block;
-    color: ${colors.blue.main};
-    background-color: ${colors.blue.opacity[10]};
-    border: 1px solid ${colors.blue.main};
-    border-radius: 50px;
-    padding: 6px 16px;
+    color: ${colors.green.main};
+    background-color: ${colors.green.opacity[20]};
+    border: 1px solid ${colors.green.main};
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: .85rem;
+    font-weight: 700;
 `
 
 const Mockup = styled.div`
     width: 100%;
     order: 1;
+    transition: .25s ease-in-out;
+
+    ${Card}:hover & {
+        transform: scale(1.05);
+    }
     
     @media screen and (min-width: 34.375rem) {
         width: calc(100% + 60px);
