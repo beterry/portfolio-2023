@@ -31,7 +31,7 @@ const LandingHeader = ({img}) => {
                         </div>
                         <ContentStack>
                             <p>I’m a creative professional who loves <Highlight>designing</Highlight> and <Highlight>developing</Highlight> great web experiences. Currently, I'm working as Web Developer II at ECI Solutions, developing eCommerce websites for existing ERP clients.</p>
-                            <p>I enjoy building side projects in my personnal time. Constantly flexing my creative muscles allows me to learn new web technologies and further improve my development skills. This is my portfolio, highlighting some of my recent projects.</p>
+                            <p>I enjoy building side projects in my personal time. Constantly flexing my creative muscles allows me to learn new web technologies and further improve my development skills. This is my portfolio, highlighting some of my recent projects.</p>
                         </ContentStack>
                         <div>
                             <ResumeButton 

@@ -119,6 +119,7 @@ const Content = styled.div`
     ul {
         list-style: none;
         padding: 0;
+        margin-top: 1em;
 
         li {
             line-height: 1.75;

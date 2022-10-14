@@ -34,7 +34,7 @@ const IndexPage = ({data}) => {
                         <ContentStack size='lg'>
                             <ContentStack>
                                 <h2>Portfolio</h2>
-                                <p>These are my favorite personal projects from past few years.</p>
+                                <p>These are my favorite personal projects from the past few years.</p>
                             </ContentStack>
                             {projects.map(project => 
                                 <ProjectCard 

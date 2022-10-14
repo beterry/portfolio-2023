@@ -17,7 +17,7 @@ import { graphql } from "gatsby"
 
 I really enjoy cooking dinner with my wife every night. We are no where near expert chefs; We rely heavily on following recipes to create anything enjoyable to eat!
 
-I gather recipes from around the internet: Youtube, cooking blogs, and other recipe apps. Many of the recipes I find are great and worth saving; however, finding them on a variety of platforms made organizing my favorites difficult. 
+I discover recipes from around the internet: Youtube, cooking blogs, and other recipe apps. Many of the recipes I find are great and worth saving; however, when it comes time to cook, re-finding them is inconvient. 
 
 I designed and developed this application to collect, organize, and make preparing my favorite meals easier!
 
@@ -44,7 +44,7 @@ For developers, there are many great database options nowadays. For this project
 
 #### Firebase Realtime database
 
-Firebase is maintained by Google and provides a suite of backend tools for web applications. One of their tools, Realtime Database, was the perfect fit for this project. A Firebase Realtime Database is cloud-hosted, synced across all clients in realtime, and also makes data available offline.
+Firebase is maintained by Google and provides a suite of backend tools for web applications. One of their tools, Realtime Database, was the perfect fit for this project. A Realtime Database is cloud-hosted, synced across all clients in realtime, and also makes data available offline.
 
 <Screenshot 
     image={props.data.images.edges[1].node.childImageSharp.fluid}
@@ -54,15 +54,15 @@ Firebase is maintained by Google and provides a suite of backend tools for web a
 
 #### REST API
 
-Any Firebase Realtime Database can be used as a REST API. This allows me to easily interact with the the recipe data via HTTPS requests. 
+Any Realtime Database can be used as a REST API. This allows me to easily interact with the the recipe data via HTTPS requests. 
 
 For example, I retrieve all recipes in the database by sending a GET request to this URL:
 
 <Callout emoji='&#127760;'>
-    https://cookbook-e918c-default-rtdb.firebaseio.com/recipes.json
+    <a href="https://cookbook-e918c-default-rtdb.firebaseio.com/recipes.json" target="_blank">https://cookbook-e918c-default-rtdb.firebaseio.com/recipes.json</a>
 </Callout>
 
-Using Firebase Realtime Database saved me a lot of time because I didn’t have to write a custom API to interact with my data.
+Using Firebase's Realtime Database saved me a lot of development time because I didn’t have to write a custom API to interact with my data.
 
 ### User Authentication
 
@@ -77,7 +77,7 @@ I implemented an auto login feature which looks for user data in local storage w
 To help security, Firebase can be configured to have user sessions. When a user’s session runs out, their attempts to edit data are no longer valid. When a user is initially logged in, I set a timer for the length of their session. When the timer expires, the application’s state changes to reflect the user being un-authenticated.
 
 <Callout emoji='&#128273;'>
-    Checkout the <a href='#'>User Service</a>
+    Checkout the <a href='https://github.com/beterry/cookbook/blob/main/src/app/services/user.service.ts' target="_blank">User Service</a>
 </Callout>
 
 ### Recipe Editing
@@ -92,10 +92,10 @@ I developed an intuitive editing form so I can efficiently add recipes from arou
 
 #### Angular Reactive Forms
 
-One of the main reasons I decided to use Angular to build this project is the framework’s approach to forms. Angular reactive forms provide direct access to the underlying recipe object model retrieved from the database. When I click the save button in the from, the data is already compiled and ready to be sent to the database to be saved. 
+One of the main reasons I decided to use Angular to build this project is the framework’s approach to forms. Angular reactive forms provide direct access to the underlying recipe object model retrieved from the database. When I click the save button in the form, the data object is already composed and ready to be sent to the database to be saved. 
 
 <Callout emoji='&#128221;'>
-    Checkout the <a href='#'>Recipe Form Component</a>
+    Checkout the <a href='https://github.com/beterry/cookbook/blob/main/src/app/recipe-form/recipe-form.component.ts' target="_blank">Recipe Form Component</a>
 </Callout>
 
 #### Form Validation
@@ -104,7 +104,7 @@ There is a variety of form validation implemented in the editing form. For examp
 
 ### Viewing the Preparation Steps
 
-One of the main differences between my cookbook and other recipe applications is the inclusion of the Prep tab. In the Prep tab, I’m able to view all the steps to prepare food before starting to cook. Personally, I believe this feature makes cooking less stressful.
+The Prep tab is a unique feature, designed specifically for my style of cooking. In the Prep tab, I’m able to view all the steps to prepare food before starting to cook. Personally, I believe this feature makes cooking less stressful by preventing multi-tasking which can lead to food burning and other mishaps.
 
 <Screenshot 
     image={props.data.images.edges[2].node.childImageSharp.fluid}
