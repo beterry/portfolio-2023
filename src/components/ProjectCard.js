@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 
 // components
 import { ContentStack } from './Layout';
+import TagList from './TagList';
 
 // styles
 import colors from "../styles/colors";
@@ -14,9 +15,7 @@ const ProjectCard = ({title, tags, description, mockup, link}) => {
             <CardContent>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <TagList>
-                    {tags.map(tag => <Tag key={title + tag}>{tag}</Tag>)}
-                </TagList>
+                <TagList tags={tags} />
             </CardContent >
             <Mockup>
                 {mockup}
@@ -62,25 +61,6 @@ const CardContent = styled(ContentStack)`
     @media screen and (min-width: 34.375rem) {
         order: 1;
     }
-`
-
-const TagList = styled.ul`
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 0;
-`
-
-const Tag = styled.li`
-    display: block;
-    color: ${colors.green.main};
-    background-color: ${colors.green.opacity[20]};
-    border: 1px solid ${colors.green.main};
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: .85rem;
-    font-weight: 700;
 `
 
 const Mockup = styled.div`

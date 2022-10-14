@@ -4,6 +4,9 @@ import styled from 'styled-components'
 // styles
 import colors from "../styles/colors";
 
+// components
+import TagList from './TagList';
+
 const Backlog = ({backlog, inProgress}) => {
     return (
         <BacklogGrid>
@@ -27,9 +30,7 @@ const BacklogCard = ({item}) => {
     return (
         <Card>
             <h4>{item.title}</h4>
-            <TagContainer>
-                {item.tags.map(tag => <CardTag key={tag} className={tag}>{tag}</CardTag>)}
-            </TagContainer>
+            <TagList tags={item.tags} />
         </Card>
     )
 }
@@ -66,35 +67,6 @@ const Card = styled.div`
     h4 {
         font-size: 1rem !important;
         margin-top: 0 !important;
-    }
-`
-
-const TagContainer = styled.div`
-    display: flex;
-    gap: 6px;
-`
-
-const CardTag = styled.div`
-    background-color: ${colors.green.main};
-    border-radius: 40px;
-    padding: 4px 12px; 
-    font-size: .85rem;
-
-    &.Design {
-        background-color: ${colors.blue.main};
-        color: white;
-    }
-
-    &.UX {
-        background-color: ${colors.blue.light};
-    }
-
-    &.Development {
-        background-color: ${colors.green.light};
-    }
-
-    &.Defect {
-        background-color: ${colors.pink.main};
     }
 `
 

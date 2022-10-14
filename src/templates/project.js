@@ -82,19 +82,19 @@ const Main = styled.div`
 `
 
 const Content = styled.div`
-    h2 {
+    & > h2 {
         font-size: 2rem;
     }
 
-    h3 {
+    & > h3 {
         font-size: 1.55rem;
     }
 
-    h4 {
+    & > h4 {
         font-size: 1.25rem;
     }
 
-    h1, h2 {
+    & > h1, & > h2 {
         margin-top: 2em;
         padding-bottom: 0.4em;
         border-bottom: 1px solid ${colors.gray[10]};
@@ -104,19 +104,15 @@ const Content = styled.div`
         }
     }
 
-    h3, h4 {
+    & > h3, h4 {
         margin-top: 1.5em;
     }
 
-    p {
+    & > p {
         margin-top: 1em;
     }
 
-    .project-images {
-        margin: 1.5em 0;
-    }
-
-    ul {
+    & > ul {
         list-style: none;
         padding: 0;
         margin-top: 1em;
@@ -134,7 +130,7 @@ const Content = styled.div`
         }
     }
 
-    ${Figure} {
+    & > ${Figure} {
         margin-top: 2em;
     }
 `
