@@ -79,4 +79,4 @@ const ColHeader = styled.h3`
     }
 `
 
-export default Backlog
+export { Backlog as default, BacklogGrid }

@@ -91,6 +91,11 @@ const Main = styled.div`
     display: grid;
     gap: 48px;
 
+    h2 {
+        padding-bottom: 0.4em;
+        border-bottom: 1px solid ${colors.gray[10]};
+    }
+
     @media screen and (min-width: 60rem) {
         grid-template-columns: 2fr 1fr;
     }

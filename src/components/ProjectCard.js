@@ -42,10 +42,8 @@ const Card = styled(Link)`
     text-decoration: none;
     color: inherit;
 
-    transition: .25s ease-in-out;
-
     &:hover {
-        transform: scale(1.01);
+        
     }
     
     @media screen and (min-width: 34.375rem) {
@@ -66,7 +64,7 @@ const CardContent = styled(ContentStack)`
 const Mockup = styled.div`
     width: 100%;
     order: 1;
-    transition: .25s ease-in-out;
+    transition: .15s ease-in-out;
 
     ${Card}:hover & {
         transform: scale(1.05);

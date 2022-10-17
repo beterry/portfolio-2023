@@ -19,7 +19,7 @@ import { BsGithub } from 'react-icons/bs'
 // short codes
 import ProjectImages from '../components/ProjectImages'
 import Callout from '../components/Callout'
-import Backlog from '../components/Backlog'
+import {default as Backlog, BacklogGrid} from '../components/Backlog'
 const shortcodes = { ProjectImages, Callout, Backlog, Screenshot }
 
 const ProjectLayout = ({ children, pageContext, data }) => {
@@ -131,6 +131,10 @@ const Content = styled.div`
     }
 
     & > ${Figure} {
+        margin-top: 2em;
+    }
+
+    & > ${BacklogGrid} {
         margin-top: 2em;
     }
 `
