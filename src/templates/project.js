@@ -26,7 +26,7 @@ const ProjectLayout = ({ children, pageContext, data }) => {
     const frontmatter = pageContext.frontmatter
 
     return (
-        <Layout>
+        <Layout prev={frontmatter.prev} next={frontmatter.next}>
             <ProjectHeader 
                 title={frontmatter.title}
                 description={frontmatter.description}

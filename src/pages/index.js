@@ -43,7 +43,7 @@ const IndexPage = ({data}) => {
                                     textColor={project.textColor}
                                     description={project.description}
                                     tags={project.technology}
-                                    mockup={<Screenshot url={project.demo} image={project.ipad.childImageSharp.fluid}/>}
+                                    mockup={<Screenshot url={project.demo} image={project.mainImage.childImageSharp.fluid}/>}
                                     link={project.slug}
                                     key={project.slug}
                                 />
@@ -163,11 +163,9 @@ export const pageQuery = graphql`
                         description
                         technology
                         madeWith
-                        color
-                        textColor
                         demo
                         code
-                        ipad {
+                        mainImage {
                             childImageSharp{
                                 fluid{
                                     ...GatsbyImageSharpFluid

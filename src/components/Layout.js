@@ -5,12 +5,12 @@ import styled from 'styled-components'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-const Layout = ({children}) => {
+const Layout = ({children, next, prev}) => {
     return (
         <Site>
             <Navbar />
             <main>{children}</main>
-            <Footer />
+            <Footer next={next} prev={prev}/>
         </Site>
     )
 }
