@@ -149,6 +149,7 @@ const URL = styled.div`
 `
 
 const Caption = styled.figcaption`
+    max-width: 42rem;
     font-size: .875rem;
     color: gray;
 `
