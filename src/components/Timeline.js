@@ -39,8 +39,9 @@ const Timeline = () => {
             <Year year='2019' title='Promoted to UI/UX Designer'>
                 <p>After learning and then applying modern web technologies to my work at Mail Shark, I was promoted to UI/UX Designer. In this position, I created designs using Adobe XD for emails, webpages, and web applications and also developed prototypes using code to demonstrate advanced functionality of these designs.</p>
             </Year>
-            <Year year='2020 - Now' title='Web Developer for Deacom'>
-                <p>I was hired by Deacom to work in their eCommerce department. In this role I’m responsible for developing several customer eCommerce websites.</p>
+            <Year year='2020 - Now' title='eCommerce Developer'>
+                <p>I was hired by Deacom to work in their eCommerce department. In this role I’m responsible for developing several custom eCommerce websites utilizing Deacom's ERP software API.</p>
+                <p>In 2022, Deacom was acquired by ECI Solutions.</p>
                 <p>I love being able to develop full-time everyday. I’m constantly improving my web development skills and learning how to become a better developer.</p>
             </Year>
         </div>

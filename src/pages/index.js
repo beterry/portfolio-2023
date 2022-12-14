@@ -63,6 +63,7 @@ const IndexPage = ({data}) => {
                                     <li>HTML5</li>
                                     <li>Responsive CSS</li>
                                     <li>APIs / Asyncronous Data Fetching</li>
+                                    <li>Unit Testing</li>
                                 </UnorderedList>
                             </ContentStack>
                             <ContentStack>
