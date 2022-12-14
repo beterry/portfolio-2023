@@ -35,7 +35,7 @@ const Screenshot = ({image, caption, url, mobile}) => {
                             }
                             <Searchbar>
                                 <IoSearch />
-                                <URL>{url}</URL>
+                                <Url>{url}</Url>
                             </Searchbar>
                         </BrowserBar>
 
@@ -142,7 +142,7 @@ const Searchbar = styled.div`
     color: #9D999A;
 `
 
-const URL = styled.div`
+const Url = styled.div`
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
