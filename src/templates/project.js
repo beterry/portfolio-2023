@@ -17,10 +17,9 @@ import colors from "../styles/colors";
 import { BsGithub } from 'react-icons/bs'
 
 // short codes
-import ProjectImages from '../components/ProjectImages'
 import Callout from '../components/Callout'
 import {default as Backlog, BacklogGrid} from '../components/Backlog'
-const shortcodes = { ProjectImages, Callout, Backlog, Screenshot }
+const shortcodes = { Callout, Backlog, Screenshot }
 
 const ProjectLayout = ({ children, pageContext, data }) => {
     const frontmatter = pageContext.frontmatter
@@ -33,7 +32,7 @@ const ProjectLayout = ({ children, pageContext, data }) => {
                 madeWith={frontmatter.madeWith}
                 color={frontmatter.color}
                 textColor={frontmatter.textColor}
-                mockup={<Screenshot url={frontmatter.demo} image={data.mainImage.edges[0].node.childImageSharp.fluid}/>}
+                mockup={<Screenshot url={frontmatter.demo} image={data.mainImage.edges[0].node.childImageSharp.gatsbyImageData}/>}
                 demo={frontmatter.demo}
                 code={frontmatter.code}
             />

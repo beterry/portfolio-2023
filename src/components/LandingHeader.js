@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import Img from 'gatsby-image'
+import { StaticImage } from 'gatsby-plugin-image'
 
 // components
 import { Container, ContentStack } from './Layout'
@@ -16,7 +16,7 @@ import { MdOutlineFrontHand } from 'react-icons/md'
 // resume
 import resume from '../images/resume/Ben Terry Resume 2023.pdf'
 
-const LandingHeader = ({img}) => {
+const LandingHeader = () => {
     return (
         <Header>
             <Container>
@@ -45,7 +45,7 @@ const LandingHeader = ({img}) => {
                         </div>
                     </Info>
                     <ImageContainer>
-                        <Img fluid={img} />
+                        <StaticImage src="../images/ben.png" alt="Ben smiling with his arms crossed" />
                     </ImageContainer>
                 </Grid>
             </Container>

@@ -29,7 +29,7 @@ I designed and developed this application to collect, organize, and make prepari
 - Create a shopping list from selected recipes
 
 <Screenshot 
-    image={props.data.images.edges[4].node.childImageSharp.fluid}
+    image={props.data.images.edges[4].node.childImageSharp.gatsbyImageData}
     caption='The recipe details page has tabs for ingredients, preparation instructions, and cooking steps.'
     url={props.pageContext.frontmatter.demo}
 />
@@ -47,7 +47,7 @@ For developers, there are many great database options nowadays. For this project
 Firebase is maintained by Google and provides a suite of backend tools for web applications. One of their tools, Realtime Database, was the perfect fit for this project. A Realtime Database is cloud-hosted, synced across all clients in realtime, and also makes data available offline.
 
 <Screenshot 
-    image={props.data.images.edges[1].node.childImageSharp.fluid}
+    image={props.data.images.edges[1].node.childImageSharp.gatsbyImageData}
     caption={`In the Firebase console, I'm able to view all the data for saved recipes. The recipe IDs are generated automatically when initially uploaded.`}
     url='firebase.google.com'
 />
@@ -85,7 +85,7 @@ To help security, Firebase can be configured to have user sessions. When a userâ
 I developed an intuitive editing form so I can efficiently add recipes from around the web. The form is able to create, delete, and edit every bit of recipe information in the database. There is never a need for me to touch the database directly, all the interaction is done through the editing form.
 
 <Screenshot 
-    image={props.data.images.edges[0].node.childImageSharp.fluid}
+    image={props.data.images.edges[0].node.childImageSharp.gatsbyImageData}
     caption='The recipe edit form makes all database information editable.'
     url={props.pageContext.frontmatter.demo}
 />
@@ -107,7 +107,7 @@ There is a variety of form validation implemented in the editing form. For examp
 The Prep tab is a unique feature, designed specifically for my style of cooking. In the Prep tab, Iâ€™m able to view all the steps to prepare food before starting to cook. Personally, I believe this feature makes cooking less stressful by preventing multi-tasking which can lead to food burning and other mishaps.
 
 <Screenshot 
-    image={props.data.images.edges[2].node.childImageSharp.fluid}
+    image={props.data.images.edges[2].node.childImageSharp.gatsbyImageData}
     caption='The preparation tab shows all steps needed to be completed before cooking.'
     url={props.pageContext.frontmatter.demo}
 />
@@ -119,7 +119,7 @@ The shopping list compiles the ingredients of selected recipes. In each recipe d
 I can also select multiple recipes on the home page and add all ingredients to the shopping list at one time!
 
 <Screenshot 
-    image={props.data.images.edges[3].node.childImageSharp.fluid}
+    image={props.data.images.edges[3].node.childImageSharp.gatsbyImageData}
     caption='Multiple recipes can be compiled into one shopping list.'
     url={props.pageContext.frontmatter.demo}
 />
@@ -199,9 +199,7 @@ export const pageQuery = graphql`
             edges {
                 node {
                     childImageSharp {
-                        fluid {
-                            ...GatsbyImageSharpFluid
-                        }
+                        gatsbyImageData
                     }
                 }
             }
@@ -210,9 +208,7 @@ export const pageQuery = graphql`
             edges {
                 node {
                     childImageSharp {
-                        fluid {
-                            ...GatsbyImageSharpFluid
-                        }
+                        gatsbyImageData
                     }
                 }
             }

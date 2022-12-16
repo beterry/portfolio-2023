@@ -38,7 +38,7 @@ When playing Terraforming Mars, players track six different resources by collect
 The amount of bronze, silver, and gold cubes is auto-calculated based on the resource amount. I tweaked this calculation to ensure that players never have to waste time making change.
 
 <Screenshot 
-    image={props.data.images.edges[0].node.childImageSharp.fluid}
+    image={props.data.images.edges[0].node.childImageSharp.gatsbyImageData}
     caption='When the player taps a cube, it becomes transpartent. A form appears in the bottom of the resource card to confirm the amount to spend.'
     url={props.pageContext.frontmatter.demo}
 />
@@ -56,7 +56,7 @@ When initially tapped, this button displays a prompt asking the user for final p
 When the player confirms to produce by tapping the button again, all the cards update to show the new supply levels.
 
 <Screenshot 
-    image={props.data.images.edges[1].node.childImageSharp.fluid}
+    image={props.data.images.edges[1].node.childImageSharp.gatsbyImageData}
     caption='When the player taps the Produce button in the bottom right, all resource cards show how much the player will gain. Another prompt appears to make sure the player wants to produce.'
     url={props.pageContext.frontmatter.demo}
 />
@@ -70,7 +70,7 @@ While designing and play testing this application, there were many features that
 I developed this application to scale to any screen size. When players use this application, it will be on their own devices which vary widely in size. I ensured that all vital game information is easily viewable on phone and tablet-sized screens.
 
 <Screenshot 
-    image={props.data.images.edges[2].node.childImageSharp.fluid}
+    image={props.data.images.edges[2].node.childImageSharp.gatsbyImageData}
     caption='The application layout adjusts to smaller mobile screens.'
     url={props.pageContext.frontmatter.demo}
     mobile
@@ -130,9 +130,7 @@ export const pageQuery = graphql`
             edges {
                 node {
                     childImageSharp {
-                        fluid {
-                            ...GatsbyImageSharpFluid
-                        }
+                        gatsbyImageData
                     }
                 }
             }
@@ -141,9 +139,7 @@ export const pageQuery = graphql`
             edges {
                 node {
                     childImageSharp {
-                        fluid {
-                            ...GatsbyImageSharpFluid
-                        }
+                        gatsbyImageData
                     }
                 }
             }

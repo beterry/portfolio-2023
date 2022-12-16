@@ -24,26 +24,26 @@ const Footer = ({prev, next}) => {
         <Foot>
             <Container>
                 <FooterLayout>
-                    <div>
+                    <FooterLinkContainer>
                         {prev && 
                             <FooterLink to={prev.title ? prev.link : '/'}>
                                 <FooterLinkIcon>{prev.title ? <MdChevronLeft /> : <MdHome />}</FooterLinkIcon>
                                 {prev.title ? prev.title : 'Home'}
                             </FooterLink>
                         }
-                    </div>
+                    </FooterLinkContainer>
                     <IconButtons>
                         <IconButton as='a' href='mailto:benterry.dev@gmail.com' color='white'><MdEmail /></IconButton>
                         <IconButton as='a' href='https://github.com/beterry' target='_blank' color='white'><BsGithub /></IconButton>
                     </IconButtons>
-                    <div>
+                    <FooterLinkContainer>
                     {prev && 
                         <FooterLink to={next.title ? next.link : '/'} className='next'>
                             {next.title ? next.title : 'Home'}
                             <FooterLinkIcon>{next.title ? <MdChevronRight /> : <MdHome />}</FooterLinkIcon>
                         </FooterLink>
                     }
-                    </div>
+                    </FooterLinkContainer>
                 </FooterLayout>
             </Container>
         </Foot>
@@ -56,10 +56,10 @@ const Foot = styled.footer`
 `
 
 const FooterLayout = styled.footer`
-    display: grid;
-    grid-template-columns: 250px 1fr 250px;
+    display: flex;
     justify-content: space-between;
     gap: 16px;
+    
 `
 
 const FooterLinkIcon = styled.div`
@@ -74,13 +74,17 @@ const IconButtons = styled.div`
     justify-content: center;
 `
 
+const FooterLinkContainer = styled.div`
+    
+`
+
 const FooterLink = styled(Link)`
-    display: flex;
+    display: none;
     align-items: center;
     gap: 16px;
     color: white;
 
-    width: 100%;
+    width: 250px;
     height: 100%;
     padding: 16px 24px;
 
@@ -92,7 +96,12 @@ const FooterLink = styled(Link)`
     }
 
     &.next {
+        justify-content: flex-end;
         text-align: right;
+    }
+
+    @media screen and (min-width: 800px) {
+        display: flex;
     }
 `
 

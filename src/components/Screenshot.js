@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { ThemeProvider, css } from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // style
 import colors from '../styles/colors'
@@ -11,12 +11,14 @@ import { IoChevronForwardOutline } from 'react-icons/io5'
 import { IoSearch } from 'react-icons/io5'
 
 const Screenshot = ({image, caption, url, mobile}) => {
+    const gatsbyImage = getImage(image)
+
     return (
         <Figure>
             <ThemeProvider theme={{mobile: !!mobile}}>
                 <Background>
                     <Screen>
-                        { mobile && <Img fluid={image} /> }
+                        { mobile && <GatsbyImage image={gatsbyImage} alt="screenshot"/> }
 
                         {/* MOBILE BROSWSER BAR */}
                         <BrowserBar>
@@ -40,7 +42,7 @@ const Screenshot = ({image, caption, url, mobile}) => {
                         </BrowserBar>
 
                         {/* DESKTOP SCREENSHOT IMAGE */}
-                        { !mobile && <Img fluid={image} /> }
+                        { !mobile && <GatsbyImage image={gatsbyImage} alt="screenshot"/> }
                     </Screen>
 
                 </Background>

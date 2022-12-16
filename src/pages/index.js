@@ -20,13 +20,10 @@ import { MdMail } from 'react-icons/md'
 
 const IndexPage = ({data}) => {
     const projects = data.projectsQuery.edges.map(edge => ({...edge.node.frontmatter , ...edge.node.fields}))
-    const ben = data.ben.fluid
-
-    console.log(projects)
 
     return (
         <Layout>
-            <LandingHeader img={ben}/>
+            <LandingHeader />
             <Padding size='section' />
             <Container>
                 <Main>
@@ -43,7 +40,7 @@ const IndexPage = ({data}) => {
                                     textColor={project.textColor}
                                     description={project.description}
                                     tags={project.technology}
-                                    mockup={<Screenshot url={project.demo} image={project.mainImage.childImageSharp.fluid}/>}
+                                    mockup={<Screenshot url={project.demo} image={project.mainImage.childImageSharp.gatsbyImageData}/>}
                                     link={project.slug}
                                     key={project.slug}
                                 />
@@ -168,9 +165,7 @@ export const pageQuery = graphql`
                         code
                         mainImage {
                             childImageSharp{
-                                fluid{
-                                    ...GatsbyImageSharpFluid
-                                }
+                                gatsbyImageData
                             }
                         }
                     }
@@ -178,11 +173,6 @@ export const pageQuery = graphql`
                         slug
                     }
                 }
-            }
-        }
-        ben: imageSharp(fluid: {originalName: {eq: "ben.png"}}) {
-            fluid {
-                ...GatsbyImageSharpFluid
             }
         }
     }

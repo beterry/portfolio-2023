@@ -55,7 +55,7 @@ const NotFoundPage = ({data}) => {
                                         textColor={project.textColor}
                                         description={project.description}
                                         tags={project.technology}
-                                        mockup={<Screenshot url={project.demo} image={project.mainImage.childImageSharp.fluid}/>}
+                                        mockup={<Screenshot url={project.demo} image={project.mainImage.childImageSharp.gatsbyImageData}/>}
                                         link={project.slug}
                                         key={project.slug}
                                     />
@@ -133,9 +133,7 @@ export const pageQuery = graphql`
                         code
                         mainImage {
                             childImageSharp{
-                                fluid{
-                                    ...GatsbyImageSharpFluid
-                                }
+                                gatsbyImageData
                             }
                         }
                     }
