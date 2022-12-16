@@ -53,7 +53,7 @@ const ColList = styled.div`
     display: grid;
     gap: 8px;
 
-    max-height: 600px;
+    max-height: 625px;
     overflow-y: auto;
 `
 

@@ -31,7 +31,7 @@ const IndexPage = ({data}) => {
                         <ContentStack size='lg'>
                             <ContentStack>
                                 <h2>Portfolio</h2>
-                                <p>These are my favorite personal projects from the past few years.</p>
+                                <p>Unfortunatly, I'm not permitted to show my professional development projects from ECI; however, these are my favorite personal projects from the past few years.</p>
                             </ContentStack>
                             {projects.map(project => 
                                 <ProjectCard 
