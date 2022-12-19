@@ -32,7 +32,7 @@ const Timeline = () => {
                 <p>At Millersville University, I studied Graphic Communication, a curriculum that involved a mix of learning graphic design and printing technology. I pursued and achieved a minor of Computer Science.</p>
             </Year>
             <Year year='2016 - 2018' title='Worked as a Graphic Designer'>
-                <p>After college, I worked as a Graphic Designer few a few years.</p>
+                <p>After college, I worked as a Graphic Designer for a few years.</p>
                 <p>At Mail Shark, my responsibilities involve periodic web design. This is when I fell in love with web technology.</p>
                 <p>After work, for several years, I studied web technology and learned how to code with HTML, CSS and Javascript.</p>
             </Year>
