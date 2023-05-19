@@ -27,7 +27,7 @@ const LandingHeader = () => {
                                 <Hand><MdOutlineFrontHand /></Hand>
                                 Hi, my name is Ben
                             </Overline>
-                            <h1>Web Developer</h1>
+                            <h1>UI/UX Developer</h1>
                         </div>
                         <ContentStack>
                             <p>I’m a creative professional who loves <Highlight>designing</Highlight> and <Highlight>developing</Highlight> great web experiences. Currently, I'm working as Web Developer II at ECI Solutions, developing eCommerce websites for existing ERP clients.</p>
